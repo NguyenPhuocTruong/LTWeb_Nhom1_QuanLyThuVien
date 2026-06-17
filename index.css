@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    /* min-height: 100dvh; */
+    width: 95%;
+    margin: 0 auto;
+    background-color: beige;
+    display: grid;
+    grid-template-rows: 1fr 3fr 1fr;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer"
+    ;
+}
+
+header {
+    grid-area: header;
+    border: 3px red solid;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        "upper_header"
+        "lower_header"
+    ;
+}
+
+div.upper_header {
+    height: 90px;
+    grid-area: upper_header;
+    border: 2px dashed black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/images/book\ png_.jpg");
+    background-size: contain;
+}
+
+div.lower_header {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    grid-area: lower_header;
+    border: 2px dashed black;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-areas:
+        "logo navi_bar"
+    ;
+}
+
+div.lower_header div.logo {
+    grid-area: logo;
+    border: 2px dashed black;
+    background-image: url("/images/book\ png_.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+div.lower_header div.navi_bar {
+    grid-area: navi_bar;
+    border: 2px dashed black;
+}
+
+main {
+    grid-area: main;
+    border: 3px blue solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    grid-area: footer;
+    border: 3px black solid;
+}
