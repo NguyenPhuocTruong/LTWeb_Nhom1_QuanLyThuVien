@@ -143,6 +143,7 @@ div.lower_header div.catalogue {
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.10);
 }
 
 main {
