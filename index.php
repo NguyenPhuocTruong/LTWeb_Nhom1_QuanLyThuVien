@@ -10,7 +10,7 @@
 <body>
     <div class="upper_header"></div>
     <div class="lower_header">
-        <div class="logo"></div>
+        <a href=""><div class="logo"></div></a>
         <div class="search">
             <div class="search_bar">
                 <button class="search_button"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -28,10 +28,38 @@
             </div>
         </div>
         <div class="catalogue">
-            <a href="">Sách Việt Nam <i class="fa-solid fa-angle-down"></i></a>
-            <a href="">Foreign Books <i class="fa-solid fa-angle-down"></i></a>
-            <a href="">Tác giả <i class="fa-solid fa-angle-down"></i></a>
-            <a href="">Thể loại <i class="fa-solid fa-angle-down"></i></a>
+            <ul>
+                <li class="dropdown">
+                    <a href="">Sách Việt Nam <i class="fa-solid fa-angle-down"></i></a>
+                    <div class="dropdown_content">
+                        <a href="">book</a>
+                        <a href="">book</a>
+                        <a href="">book</a>
+                        <a href="">book</a>
+                        <a href="">book</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="">Foreign Books <i class="fa-solid fa-angle-down"></i></a>
+                    <div class="dropdown_content">
+                        <a href="">book1</a>
+                        <a href="">book1</a>
+                        <a href="">book1</a>
+                        <a href="">book1</a>
+                        <a href="">book1</a>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="">Tác Giả <i class="fa-solid fa-angle-down"></i></a>
+                    <div class="dropdown_content">
+                        <a href="">book2</a>
+                        <a href="">book2</a>
+                        <a href="">book2</a>
+                        <a href="">book2</a>
+                        <a href="">book2</a>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
     <main>

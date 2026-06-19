@@ -1,3 +1,4 @@
+/* =====================================General============================================ */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -26,6 +27,7 @@ a {
     font-weight: 550;
 }
 
+/* =====================================Header============================================ */
 div.upper_header {
     height: 90px;
     grid-area: upper_header;
@@ -55,13 +57,15 @@ div.lower_header {
     ;
 }
 
-div.lower_header div.logo {
+.logo {
     grid-area: logo;
     border: 2px dashed black;
     background-image: url("/images/book\ png_.jpg");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    width: 100%;
+    height: 100%;
 }
 
 div.lower_header div.search {
@@ -70,13 +74,12 @@ div.lower_header div.search {
     display: flex;
     flex-direction: row;
     align-items: center;
-    /* justify-content: center; */
 }
 
 input[type="search"] {
     margin: auto 10px;
     font-size: 20px;
-    font-weight: bolder;
+    font-weight: 500;
     height: 40px;
     width: 700px;
     outline: 0;
@@ -146,6 +149,49 @@ div.lower_header div.catalogue {
     box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.10);
 }
 
+div.catalogue ul {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    /* border: 3px blue solid; */
+}
+
+li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    /* border: 3px red solid; */
+    height: 44px;
+}
+
+.dropdown_content {
+    display: none;
+    position: absolute;
+    min-width: 500px;
+    background-color: white;
+    margin-top: 170px;
+    box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.10);
+    border-radius: 5px;
+}
+
+.dropdown_content a {
+    display: block;
+    /* margin: 10px; */
+    /* font-size: 15px; */
+}
+
+.dropdown_content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown_content {
+    display: block;
+}
+
+/* =====================================Main============================================ */
 main {
     grid-area: main;
     border: 3px blue solid;
@@ -155,6 +201,7 @@ main {
     align-items: center;
 }
 
+/* =====================================Footer============================================ */
 footer {
     grid-area: footer;
     border: 3px black solid;
