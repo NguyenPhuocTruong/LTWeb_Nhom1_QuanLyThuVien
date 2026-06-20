@@ -10,7 +10,9 @@ body {
     margin: 0 auto;
     background-color: whitesmoke;
     display: grid;
-    grid-template-rows: 1fr 2fr 3fr 1fr;
+    grid-template-rows: auto auto 3fr auto;
+    grid-auto-flow: row;
+    gap: 0px 0px;
     grid-template-areas:
         "upper_header"
         "lower_header"
@@ -39,7 +41,7 @@ div.upper_header {
 }
 
 div.lower_header {
-    height: 80%;
+    height: 140px;
     position: -webkit-sticky;
     position: sticky;
     top: 0;
@@ -232,6 +234,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border: 2px white solid;
 }
 
 .back_to_head_btn a {
@@ -242,5 +245,30 @@ main {
 /* =====================================Footer============================================ */
 footer {
     grid-area: footer;
-    border: 3px black solid;
+    /* border: 3px black solid; */
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-evenly;
+    background-color: rgb(0, 59, 119);
+    color: white;
+}
+
+.footer_column {
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+.footer_column h2::after {
+    display: inline-block;
+    position: absolute;
+    width: 10%;
+    top: 185.5dvh;
+    left: 365px;
+    content: "";
+    background-color: #f1f1f1;
+    height: 3px;
 }
