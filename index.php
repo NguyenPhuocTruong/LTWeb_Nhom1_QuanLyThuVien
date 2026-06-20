@@ -14,6 +14,7 @@
 
     <main>
         <h1>main</h1>
+        <button class="back_to_head_btn"><a href=""><i class="fa-solid fa-angle-up"></i></a></button>
     </main>
     <footer>
         <h1>footer</h1>
