@@ -8,6 +8,7 @@
             </div>
             <div class="login_container">
                 <div class="login">
+                    <!-- <i class="fa-solid fa-square-phone" style="font-size: 55px;"></i> -->
                     <i class="fa-solid fa-phone" style="font-size: 40px;"></i>
                     <div><a href="" style="font-size: 19px; font-weight: bolder;">12345678</a><br><a href="" style="font-size: 15px;">Trợ giúp</a></div>
                 </div>
