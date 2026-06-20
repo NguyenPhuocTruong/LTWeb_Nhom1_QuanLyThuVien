@@ -8,9 +8,9 @@
     <script src="https://kit.fontawesome.com/67ecaf9947.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <!-- include header -->
+    <!-- include header file -->
     <?php include 'header.php' ?>
-    
+
     <main>
         <h1>main</h1>
     </main>

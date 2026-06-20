@@ -39,7 +39,6 @@ div.upper_header {
 }
 
 div.lower_header {
-    /* height: 80px; */
     height: 80%;
     position: -webkit-sticky;
     position: sticky;
