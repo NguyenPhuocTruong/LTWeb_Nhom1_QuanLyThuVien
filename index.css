@@ -6,7 +6,6 @@
 }
 
 body {
-    /* min-height: 100dvh; */
     width: 95%;
     margin: 0 auto;
     background-color: whitesmoke;
@@ -21,7 +20,6 @@ body {
 }
 
 a {
-    margin: 5px;
     text-decoration: none;
     color: black;
     font-weight: 550;
@@ -31,7 +29,7 @@ a {
 div.upper_header {
     height: 90px;
     grid-area: upper_header;
-    border: 2px dashed red;
+    /* border: 2px dashed red; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -47,7 +45,7 @@ div.lower_header {
     position: sticky;
     top: 0;
     grid-area: lower_header;
-    border: 2px dashed black;
+    /* border: 2px dashed black; */
     display: grid;
     grid-template-columns: 1fr 5fr;
     grid-template-rows: 2fr 1fr;
@@ -55,11 +53,12 @@ div.lower_header {
         "logo search"
         "catalogue catalogue"
     ;
+    background-color: rgb(0, 94, 187);
 }
 
 .logo {
     grid-area: logo;
-    border: 2px dashed black;
+    /* border: 2px dashed black; */
     background-image: url("/images/book\ png_.jpg");
     background-size: contain;
     background-repeat: no-repeat;
@@ -68,9 +67,13 @@ div.lower_header {
     height: 100%;
 }
 
+div.lower_header a {
+    margin: 5px;
+}
+
 div.lower_header div.search {
     grid-area: search;
-    border: 2px dashed black;
+    /* border: 2px dashed black; */
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -94,7 +97,7 @@ div.search div.search_bar {
     align-items: center;
     background-color: white;
     border-radius: 15px;
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }
 
 .search_button {
@@ -103,7 +106,7 @@ div.search div.search_bar {
     background-color: white;
     border: 0;
     font-size: 20px;
-    color: darkgreen;
+    color: rgb(0, 94, 187);
     border-radius: 10px;
 }
 
@@ -112,7 +115,7 @@ div.search div.search_bar {
 }
 
 div.login_container {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -128,25 +131,31 @@ div.login {
     border-radius: 20px;
     height: 90%;
     margin: auto 15px;
+    color: white;
 }
 
 div.login:hover {
-    background-color: white;
+    background-color: rgb(12, 122, 232);
 }
 
 div.login div a:hover {
     cursor: pointer;
-    color: burlywood;
+    color: darkblue;
+}
+
+div.login div a {
+    color: white;
 }
 
 div.lower_header div.catalogue {
     grid-area: catalogue;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
     box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.10);
+    background-color: white;
 }
 
 div.catalogue ul {
@@ -174,19 +183,19 @@ li {
     min-width: 500px;
     max-height: 0;
     background-color: white;
-    margin-top: 170px;
+    margin-top: 220px;
     box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.10);
     border-radius: 5px;
     transform: translateY(10px);
     transition: all ease 0.1s;
     z-index: 1;
-    padding-left: 10px;
 }
 
 .dropdown_content a {
     display: block;
     transform: translate(-5px, 0);
     transition: linear 0.1s;
+    padding: 5px;
 }
 
 .dropdown_content a:hover {
@@ -196,7 +205,6 @@ li {
 
 .dropdown:hover .dropdown_content {
     max-height: 500px;
-    
     opacity: 1;
     transform: translateY(0);
 }

@@ -32,31 +32,31 @@
                 <li class="dropdown">
                     <a href="">Sách Việt Nam <i class="fa-solid fa-angle-down"></i></a>
                     <div class="dropdown_content">
-                        <a href="">book</a>
-                        <a href="">book</a>
-                        <a href="">book</a>
-                        <a href="">book</a>
-                        <a href="">book</a>
+                        <a href="">Thể loại1</a>
+                        <a href="">Thể loại2</a>
+                        <a href="">Thể loại3</a>
+                        <a href="">Thể loại4</a>
+                        <a href="">Thể loại5</a>
                     </div>
                 </li>
                 <li class="dropdown">
                     <a href="">Foreign Books <i class="fa-solid fa-angle-down"></i></a>
                     <div class="dropdown_content">
-                        <a href="">book1</a>
-                        <a href="">book1</a>
-                        <a href="">book1</a>
-                        <a href="">book1</a>
-                        <a href="">book1</a>
+                        <a href="">Thể loại1</a>
+                        <a href="">Thể loại2</a>
+                        <a href="">Thể loại3</a>
+                        <a href="">Thể loại4</a>
+                        <a href="">Thể loại5</a>
                     </div>
                 </li>
                 <li class="dropdown">
                     <a href="">Tác Giả <i class="fa-solid fa-angle-down"></i></a>
                     <div class="dropdown_content">
-                        <a href="">book2</a>
-                        <a href="">book2</a>
-                        <a href="">book2</a>
-                        <a href="">book2</a>
-                        <a href="">book2</a>
+                        <a href="">Tác giả1</a>
+                        <a href="">Tác giả2</a>
+                        <a href="">Tác giả3</a>
+                        <a href="">Tác giả4</a>
+                        <a href="">Tác giả5</a>
                     </div>
                 </li>
             </ul>
