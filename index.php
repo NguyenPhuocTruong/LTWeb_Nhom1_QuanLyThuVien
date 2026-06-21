@@ -6,7 +6,7 @@
     <title>Library</title>
     <link rel="stylesheet" href="index.css">
     <script src="https://kit.fontawesome.com/67ecaf9947.js" crossorigin="anonymous"></script>
-    <link rel="icon" type="image/vnd.microsoft.icon" href="/images/book png_.jpg">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/images/sky4.jpg">
 </head>
 <body>
     <!-- include header file -->
