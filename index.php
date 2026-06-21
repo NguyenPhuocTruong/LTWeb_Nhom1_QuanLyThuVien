@@ -14,7 +14,6 @@
 
     <main>
         <h1>MAIN</h1><br>
-        <button class="back_to_head_btn"><a href=""><i class="fa-solid fa-angle-up"></i></a></button>
         <h1>he</h1>
         <h1>lo</h1>
         <h1>con</h1>
@@ -55,5 +54,6 @@
 
     <!-- include footer file -->
     <?php include 'footer.php' ?>
+    <button class="back_to_head_btn"><a href=""><i class="fa-solid fa-angle-up"></i></a></button>
 </body>
 </html>
