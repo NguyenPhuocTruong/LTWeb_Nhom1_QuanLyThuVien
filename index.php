@@ -14,7 +14,6 @@
 
     <main>
         <h1>MAIN</h1><br>
-        <h1>he</h1>
         <h1>lo</h1>
         <h1>con</h1>
         <h1>he</h1>
