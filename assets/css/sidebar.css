@@ -1,0 +1,41 @@
+.sidebar {
+  width: 200px;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+.content {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+}
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background: #1f2937;
+  color: white;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.sidebar a {
+  display: block;
+  color: #cbd5e1;
+  text-decoration: none;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  transition: 0.2s;
+}
+
+.sidebar a:hover {
+  background: #2563eb;
+  color: white;
+}
