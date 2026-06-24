@@ -1,7 +1,86 @@
-.container {
-  display: flex;
-}
-.main {
-  margin-left: 240px;
+.books-page {
+  background: #f4f6f9;
   padding: 20px;
+}
+
+.books-page * {
+  box-sizing: border-box;
+}
+
+.admin-layout {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+  width: 100%;
+}
+
+.books-content {
+  flex: 1;
+  min-width: 0;
+  background: #84ceeb;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.books-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.books-header h2 {
+  margin: 0;
+}
+
+.btn-add {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.books-table-box {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.books-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.books-table th,
+.books-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.books-table th {
+  background: #f1f5f9;
+}
+
+.btn-edit {
+  background: #f59e0b;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-delete {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
 }

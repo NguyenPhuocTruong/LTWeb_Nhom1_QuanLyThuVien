@@ -1,41 +1,37 @@
 .sidebar {
-  width: 200px;
-  background-color: #f0f0f0;
-  padding: 20px;
-}
-.content {
-  flex: 1;
-  padding: 20px;
-  text-align: center;
-}
-.sidebar {
   width: 240px;
-  height: 100vh;
-  background: #1f2937;
+  flex: 0 0 240px;
+  min-height: 100vh;
+  background: #2563eb;
   color: white;
   padding: 20px;
-  position: fixed;
-  left: 0;
-  top: 0;
+  border-radius: 8px;
 }
 
-.logo {
-  font-size: 18px;
+/* Fix lỗi bị header.css đè class .logo */
+.sidebar .logo {
+  background: none;
+  background-image: none;
+  grid-area: auto;
+  width: auto;
+  height: auto;
+
+  font-size: 24px;
   font-weight: bold;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
+  color: white;
 }
 
 .sidebar a {
   display: block;
-  color: #cbd5e1;
+  color: #e5e7eb;
+  padding: 10px;
   text-decoration: none;
-  padding: 12px;
-  border-radius: 8px;
+  border-radius: 6px;
   margin-bottom: 8px;
-  transition: 0.2s;
 }
 
 .sidebar a:hover {
-  background: #2563eb;
+  background: #1d4ed8;
   color: white;
 }

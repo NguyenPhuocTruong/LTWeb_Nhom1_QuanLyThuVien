@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
     <script src="https://kit.fontawesome.com/67ecaf9947.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/vnd.microsoft.icon" href="/images/sky4.jpg">
 </head>
+
 <body>
     <!-- include header file -->
     <?php include 'header.php' ?>
@@ -55,4 +60,5 @@
     <?php include 'footer.php' ?>
     <button class="back_to_head_btn"><a href=""><i class="fa-solid fa-angle-up"></i></a></button>
 </body>
+
 </html>
