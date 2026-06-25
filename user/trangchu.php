@@ -12,35 +12,17 @@
 <body>
    <?php include '../header.php' ?>
     <main>
-        <div class="book_container">
-            hello
-        </div>
-        <div class="book_container">
-            hello
-        </div>
-        <div class="book_container">
-            hello
-        </div>
-        <div class="book_container">
-            hello
-        </div>
-        <div class="book_container">
-            hello
-        </div>
-        <div class="book_container">
-            hello
-        </div>
-        <div class="book_container">
-            hello
-        </div>
-        <div class="book_container">
-            hello
-        </div>
-        <div class="book_container">
-            hello
-        </div>
-        <div class="book_container">
-            hello
+        <h2 class="label">Truyện tranh</h2>
+        <div class="book_area">
+            <?php 
+                for ($i = 0; $i < 14; $i++){
+                    echo "
+                        <div class=\"book_container\">
+                            hello $i
+                        </div>
+                    ";
+                }
+            ?>
         </div>
     </main>
    <?php include '../footer.php' ?>

@@ -1,10 +1,26 @@
 main {
-    border: 2px red solid;
-    display: inline;
+    /* border: none; */
+    background-color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.book_area {
+    width: 99%;
+    display: inline-block;
+    columns: auto;
+    border: 3px black solid;
 }
 
 .book_container {
-    border: 2px blue solid;
-    margin: auto;
-    width: 200px;
+    display: inline-block;
+    border: 2px red solid;
+    margin: 10px;
+    min-width: 300px;
+    border-radius: 6px;
+}
+
+h2.label {
+    text-align: left;
+    text-transform: uppercase;
 }
