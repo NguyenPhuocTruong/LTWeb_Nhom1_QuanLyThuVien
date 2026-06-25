@@ -57,7 +57,7 @@ div.lower_header {
     grid-area: logo;
     /* border: 2px dashed black; */
     background-image: url("./images/logo_text_only_bolder\ \(1\).png");
-    background-size: 200px;
+    background-size: 180px;
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
@@ -81,7 +81,7 @@ input[type="search"] {
     font-size: 20px;
     font-weight: 500;
     height: 40px;
-    width: 700px;
+    width: 600px;
     outline: 0;
     border: 0;
     border-radius: 10px;
