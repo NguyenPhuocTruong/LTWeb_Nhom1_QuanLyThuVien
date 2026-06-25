@@ -1,3 +1,10 @@
 main {
     border: 2px red solid;
+    display: inline;
+}
+
+.book_container {
+    border: 2px blue solid;
+    margin: auto;
+    width: 200px;
 }
