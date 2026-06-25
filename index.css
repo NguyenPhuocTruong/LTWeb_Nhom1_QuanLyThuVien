@@ -57,7 +57,7 @@ div.lower_header {
     grid-area: logo;
     /* border: 2px dashed black; */
     background-image: url("./images/logo_text_only_bolder\ \(1\).png");
-    background-size: 250px;
+    background-size: 200px;
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
