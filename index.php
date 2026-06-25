@@ -53,6 +53,5 @@
 
     <!-- include footer file -->
     <?php include 'footer.php' ?>
-    <button class="back_to_head_btn"><a href=""><i class="fa-solid fa-angle-up"></i></a></button>
 </body>
 </html>
