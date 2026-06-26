@@ -29,4 +29,5 @@
         <h4><i class="fa-solid fa-phone" style="color: rgb(218, 78, 78);"></i> 12345678 (8:00 - 20:00)</h4><br>
         <h4><i class="fa-solid fa-envelope" style="color: rgb(218, 78, 78);"></i> <a href="">nhom1@gmail.com</a></h4>
     </div>
+    <button class="back_to_head_btn"><a href=""><i class="fa-solid fa-angle-up"></i></a></button>
 </footer>
