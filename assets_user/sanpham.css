@@ -1,0 +1,19 @@
+main {
+    border: 2px red solid;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "book_image book_info"
+    ;
+}
+
+.book_image {
+    grid-area: book_image;
+    border: 2px blue solid;
+}
+
+.book_info {
+    grid-area: book_info;
+    border: 2px black solid;
+}

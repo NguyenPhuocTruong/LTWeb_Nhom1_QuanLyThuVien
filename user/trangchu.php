@@ -12,7 +12,7 @@
 <body>
    <?php include '../header.php' ?>
     <main>
-        <h2 class="label">Truyện tranh</h2>
+        <h2 class="label">sách việt nam</h2>
         <div class="book_area">
             <?php 
                 for ($i = 0; $i < 14; $i++){
