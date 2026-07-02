@@ -3,18 +3,17 @@
 
 <head>
     <title>Books</title>
-    <link rel="stylesheet" href="../assets/css/reset.css">
 
-    <link rel="stylesheet" href="../assets/css/header.css">
-    <link rel="stylesheet" href="../assets/css/footer.css">
+    <link rel="stylesheet" href="../index.css">
+    <!-- <link rel="stylesheet" href="../assets_admin/css/reset.css"> -->
 
-    <link rel="stylesheet" href="../assets/css/sidebar.css">
-    <link rel="stylesheet" href="../assets/css/books.css">
+    <link rel="stylesheet" href="../assets_admin/css/sidebar.css">
+    <link rel="stylesheet" href="../assets_admin/css/books.css">
 
     <script src="https://kit.fontawesome.com/67ecaf9947.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body class="admin-body">
 
     <?php include "../header.php"; ?>
 

@@ -1,6 +1,6 @@
 <div class="sidebar">
 
-    <div class="logo">
+    <div class="admin-logo">
         Library Admin
     </div>
 

@@ -1,3 +1,17 @@
+.books-page .books-content {
+  margin: 0;
+  width: auto;
+  border: none;
+  grid-area: auto;
+  display: block;
+  justify-content: initial;
+  align-items: initial;
+}
+body.admin-body {
+  display: block;
+  width: 100%;
+  background: #f4f6f9;
+}
 .books-page {
   background: #f4f6f9;
   padding: 20px;

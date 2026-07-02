@@ -9,13 +9,7 @@
 }
 
 /* Fix lỗi bị header.css đè class .logo */
-.sidebar .logo {
-  background: none;
-  background-image: none;
-  grid-area: auto;
-  width: auto;
-  height: auto;
-
+.sidebar .admin-logo {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 25px;

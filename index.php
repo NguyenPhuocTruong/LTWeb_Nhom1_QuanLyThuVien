@@ -5,10 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
-    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="/assets_admin/css/reset.css">
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="assets/css/header.css">
-    <link rel="stylesheet" href="assets/css/footer.css">
     <script src="https://kit.fontawesome.com/67ecaf9947.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/vnd.microsoft.icon" href="/images/sky4.jpg">
 </head>
