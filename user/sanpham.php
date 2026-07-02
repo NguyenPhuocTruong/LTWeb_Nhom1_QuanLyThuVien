@@ -12,8 +12,75 @@
 <body>
     <?php include "../header.php" ?>
     <main>
-        <div class="book_image">this is an image</div>
-        <div class="book_info">this is info of book</div>
+        <div class="book_image">
+            <div class="image_container">
+                <img src="../assets_user/book_images/bon_thoa_uoc.webp" alt="image">
+            </div>
+        </div>
+        <div class="book_info">
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+            <h1>he</h1>
+        </div>
     </main>
     <?php include "../footer.php" ?>
 </body>
