@@ -1,3 +1,7 @@
+body {
+    background-color: rgb(226, 226, 226);
+}
+
 main {
     /* border: 2px red solid; */
     display: grid;
@@ -23,24 +27,98 @@ main {
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    width: 70%;
-    height: 700px;
+    max-width: 90%;
+    min-width: 80%;
+    min-height: 500px;
+    max-height: 700px;
     position: sticky;
     top: 150px;
     z-index: -1;
-    border: 3px green solid;
+    /* border: 3px green solid; */
     background-color: white;
     border-radius: 15px;
     margin-top: 30px;
-    
+    margin-bottom: 30px;
 }
 
 .image_container img {
-    scale: 0.6;
-    margin-top: -150px;
+    margin-top: 20px;
+    height: 85%;
+    width: 90%;
+}
+
+.image_container button {
+    margin: auto;
+    height: 40px;
+    width: 150px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    background-color: rgb(31, 119, 207);
+    color: white;
+    font-size: larger;
 }
 
 .book_info {
     grid-area: book_info;
-    border: 2px black solid;
+    /* border: 2px black solid; */
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+}
+
+.general_info {
+    /* border: 2px red solid; */
+    display: grid;
+    grid-template-rows: 1fr auto;
+    grid-template-areas:
+        "title"
+        "info"
+    ;
+    background-color: white;
+    border-radius: 15px;
+    margin-top: 30px;
+    padding: 20px;
+}
+
+.title {
+    grid-area: title;
+}
+
+.info {
+    grid-area: info;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.detail_info {
+    /* border: 2px red solid; */
+    background-color: white;
+    border-radius: 15px;
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: start;
+}
+
+.detail_info div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 2px rgb(214, 214, 214) solid;
+    width: 80%;
+    padding-bottom: 15px;
+}
+
+.info_name {
+    color: rgb(149, 149, 149);
+}
+
+.book_description {
+    background-color: white;
+    border-radius: 15px;
+    margin-top: 20px;
+    padding: 20px;
+    margin-bottom: 30px;
 }
