@@ -1,0 +1,29 @@
+CREATE TABLE library.sach (
+    ma_sach INT auto_increment PRIMARY KEY,
+    ten_sach VARCHAR(200) NOT NULL collate 'utf8mb4_unicode_ci',
+    tac_gia VARCHAR(50) NOT NULL collate 'utf8mb4_unicode_ci',
+    nam_xb INT NOT NULL,
+    nha_xb VARCHAR(50) NOT NULL collate 'utf8mb4_unicode_ci',
+    nha_cung_cap VARCHAR(50) NOT NULL collate 'utf8mb4_unicode_ci',
+    the_loai VARCHAR(50) NOT NULL collate 'utf8mb4_unicode_ci',
+    so_luong INT NOT NULL
+);
+
+CREATE TABLE library.theloai (
+    ma_the_loai INT auto_increment PRIMARY KEY,
+    ten_the_loai VARCHAR(50) NOT NULL collate 'utf8mb4_unicode_ci'
+);
+
+CREATE TABLE library.nguoidung (
+    email VARCHAR(100) PRIMARY KEY,
+    hoten VARCHAR(50) NOT NULL collate 'utf8mb4_unicode_ci',
+    mat_khau VARCHAR(255) NOT NULL collate 'utf8mb4_unicode_ci'
+);
+
+CREATE TABLE library.muon_sach (
+    email VARCHAR(100),
+    ma_sach INT,
+    so_luong_sach_muon INT,
+    Foreign Key (email) REFERENCES library.nguoidung(email),
+    Foreign Key (ma_sach) REFERENCES library.sach(ma_sach)
+)
