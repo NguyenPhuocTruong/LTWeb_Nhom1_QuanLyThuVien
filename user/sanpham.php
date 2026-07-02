@@ -15,7 +15,13 @@
         <div class="book_image">
             <div class="image_container">
                 <img src="../assets_user/book_images/bon_thoa_uoc.webp" alt="image">
-                <button>Mượn sách</button>
+                <button id="butt">Mượn sách</button>
+                <script>
+                    const butt = document.getElementById("butt");
+                    butt.addEventListener('click', (e) => {
+                        butt.textContent = "Bạn đã mượn sách này";
+                    })
+                </script>
             </div>
         </div>
         <div class="book_info">
@@ -41,7 +47,7 @@
                 <div><p class="info_name">Năm XB</p><p>1990</p></div>
             </div>
             <div class="book_description">
-                <h2>Mô tả sản phẩm</h2><br>
+                <h2>Mô tả sách</h2><br>
                 BỐN THỎA ƯỚC
 Bí quyết sống tự do, bình an, hạnh phúc giữa thế giới bất định
 don Miguel Ruiz - Hậu duệ của người Toltec cổ xưa

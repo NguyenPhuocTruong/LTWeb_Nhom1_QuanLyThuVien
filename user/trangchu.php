@@ -12,14 +12,27 @@
 <body>
    <?php include '../header.php' ?>
     <main>
-        <h2 class="label">sách việt nam</h2>
         <div class="book_area">
+            <h2 class="label">sách việt nam</h2>
             <?php 
                 for ($i = 0; $i < 14; $i++){
                     echo "
                         <div class=\"book_container\">
-                            <a href=\"./sanpham.php\"><img src=\"../assets_user/book_images/ho_diep_va_kinh_ngu.jpg\" alt=\"image\"></a><br>
+                            <a href=\"./sanpham.php\"><img src=\"../assets_user/book_images/bon_thoa_uoc.webp\" alt=\"image\"></a><br><br>
                             <a href=\"./sanpham.php\">Bốn thỏa ước</a>
+                        </div>
+                    ";
+                }
+            ?>
+        </div>
+        <div class="book_area">
+            <h2 class="label">foreign books</h2>
+            <?php 
+                for ($i = 0; $i < 14; $i++){
+                    echo "
+                        <div class=\"book_container\">
+                            <a href=\"./sanpham.php\"><img src=\"../assets_user/book_images/nha_gia_kim.webp\" alt=\"image\"></a><br><br>
+                            <a href=\"./sanpham.php\">Nhà giả kim</a>
                         </div>
                     ";
                 }

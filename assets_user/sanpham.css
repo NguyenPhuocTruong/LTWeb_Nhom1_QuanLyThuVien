@@ -49,17 +49,27 @@ main {
 .image_container button {
     margin: auto;
     height: 40px;
-    width: 150px;
+    min-width: 150px;
+    width: auto;
     border-radius: 10px;
     border: none;
     background-color: rgb(31, 119, 207);
     color: white;
     font-size: larger;
     cursor: pointer;
+    transition: 0.2s ease;
 }
 
 .image_container button:hover {
-    transform: scale(1.5);
+    background-color: rgb(82, 136, 82);
+}
+
+.image_container button:active {
+    transform: scale(0.9);
+}
+
+.image_container button:focus {
+    background-color: rgb(50, 50, 50);
 }
 
 .book_info {
