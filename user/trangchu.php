@@ -18,7 +18,8 @@
                 for ($i = 0; $i < 14; $i++){
                     echo "
                         <div class=\"book_container\">
-                            hello $i
+                            <a href=\"./sanpham.php\"><img src=\"../assets_user/book_images/ho_diep_va_kinh_ngu.jpg\" alt=\"image\"></a><br>
+                            <a href=\"./sanpham.php\">Bốn thỏa ước</a>
                         </div>
                     ";
                 }

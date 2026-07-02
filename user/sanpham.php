@@ -28,7 +28,7 @@
                     </div>
                     <div>
                         <p>Tác giả: <b>Janet Mills , don Miguel Ruiz</b></p><br>
-                        <p>Số lượng: <b>10</b></p>
+                        <p>Số lượng sách còn lại: <b>10</b></p>
                     </div>
                 </div>
             </div>
