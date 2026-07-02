@@ -34,6 +34,7 @@ div.upper_header {
     /* border: 2px dashed red; */
     background-image: url("./images/sky4.jpg");
     background-size: contain;
+    z-index: 1;
 }
 
 div.lower_header {
@@ -51,6 +52,7 @@ div.lower_header {
         "catalogue catalogue"
     ;
     background-color: rgb(102, 143, 183);
+    z-index: 1;
 }
 
 .logo {
