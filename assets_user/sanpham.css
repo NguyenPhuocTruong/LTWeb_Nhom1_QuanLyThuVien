@@ -33,7 +33,6 @@ main {
     max-height: 700px;
     position: sticky;
     top: 150px;
-    z-index: -1;
     /* border: 3px green solid; */
     background-color: white;
     border-radius: 15px;
@@ -52,11 +51,15 @@ main {
     height: 40px;
     width: 150px;
     border-radius: 10px;
-    outline: none;
     border: none;
     background-color: rgb(31, 119, 207);
     color: white;
     font-size: larger;
+    cursor: pointer;
+}
+
+.image_container button:hover {
+    transform: scale(1.5);
 }
 
 .book_info {
