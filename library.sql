@@ -6,7 +6,8 @@ CREATE TABLE library.sach (
     nha_xb VARCHAR(50) NOT NULL collate 'utf8mb4_unicode_ci',
     nha_cung_cap VARCHAR(50) NOT NULL collate 'utf8mb4_unicode_ci',
     the_loai VARCHAR(50) NOT NULL collate 'utf8mb4_unicode_ci',
-    so_luong INT NOT NULL
+    so_luong INT NOT NULL,
+    anh_bia mediumblob NOT NULL
 );
 
 CREATE TABLE library.theloai (
@@ -23,7 +24,7 @@ CREATE TABLE library.nguoidung (
 CREATE TABLE library.muon_sach (
     email VARCHAR(100),
     ma_sach INT,
-    so_luong_sach_muon INT,
+    so_luong_sach_muon INT NOT NULL,
     Foreign Key (email) REFERENCES library.nguoidung(email),
     Foreign Key (ma_sach) REFERENCES library.sach(ma_sach)
 )
