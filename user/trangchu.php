@@ -15,11 +15,17 @@
         <div class="book_area">
             <h2 class="label">sách việt nam</h2>
             <?php 
-                for ($i = 0; $i < 14; $i++){
+                require_once("../mysqlConnect.php");
+                $mysqli->select_db("library");
+
+                $result = $mysqli->query("SELECT * FROM sach WHERE quoc_gia = \"vietnam\"");
+
+                while ($row = $result->fetch_assoc()){
+                    $image_encode = base64_encode($row['anh_bia']);
                     echo "
                         <div class=\"book_container\">
-                            <a href=\"./sanpham.php\"><img src=\"../assets_user/book_images/bon_thoa_uoc.webp\" alt=\"image\"></a><br><br>
-                            <a href=\"./sanpham.php\">Bốn thỏa ước</a>
+                            <a href=\"./sanpham.php\"><img src=\"data:image/jpg;charset=utf8;base64,$image_encode\" alt=\"image\"></a><br><br>
+                            <a href=\"./sanpham.php\">" . $row['ten_sach'] . "</a>
                         </div>
                     ";
                 }
