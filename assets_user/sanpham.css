@@ -119,7 +119,7 @@ main {
 .detail_info div {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    border-bottom: 2px rgb(255, 0, 0) solid;
+    border-bottom: 2px rgb(231, 231, 231) solid;
     width: 80%;
     padding-bottom: 15px;
 }
