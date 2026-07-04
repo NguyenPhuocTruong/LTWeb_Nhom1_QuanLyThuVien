@@ -20,7 +20,7 @@
         <div class="catalogue">
             <ul>
                 <li class="dropdown">
-                    <a href="">Sách Việt Nam <i class="fa-solid fa-angle-down"></i></a>
+                    <a href="./display_books.php?quoc_gia=vietnam">Sách Việt Nam <i class="fa-solid fa-angle-down"></i></a>
                     <div class="dropdown_content">
                         <?php 
                             require_once("../mysqlConnect.php");
@@ -28,35 +28,32 @@
                             
                             $result = $mysqli->query("SELECT DISTINCT the_loai FROM sach WHERE quoc_gia=\"vietnam\"");
                             while ($row = $result->fetch_assoc()){
-                                echo "<a href=\"\">" . $row['the_loai'] . "</a>";
+                                $the_loai = $row['the_loai'];
+                                echo "<a href=\"./display_books.php?the_loai=$the_loai\">$the_loai</a>";
                             }
                         ?>
                     </div>
                 </li>
                 <li class="dropdown">
-                    <a href="">Foreign Books <i class="fa-solid fa-angle-down"></i></a>
+                    <a href="./display_books.php?quoc_gia=nuocngoai">Foreign Books <i class="fa-solid fa-angle-down"></i></a>
                     <div class="dropdown_content">
                         <?php 
-                            require_once("../mysqlConnect.php");
-                            $mysqli->select_db("library");
-                            
                             $result = $mysqli->query("SELECT DISTINCT the_loai FROM sach WHERE quoc_gia=\"nuocngoai\"");
                             while ($row = $result->fetch_assoc()){
-                                echo "<a href=\"\">" . $row['the_loai'] . "</a>";
+                                $the_loai = $row['the_loai'];
+                                echo "<a href=\"./display_books.php?the_loai=$the_loai\">$the_loai</a>";
                             }
                         ?>
                     </div>
                 </li>
                 <li class="dropdown">
-                    <a href="">Tác Giả <i class="fa-solid fa-angle-down"></i></a>
+                    <p style="font-weight: bold;">Tác Giả <i class="fa-solid fa-angle-down"></i></p>
                     <div class="dropdown_content">
                         <?php 
-                            require_once("../mysqlConnect.php");
-                            $mysqli->select_db("library");
-                            
                             $result = $mysqli->query("SELECT DISTINCT tac_gia FROM sach");
                             while ($row = $result->fetch_assoc()){
-                                echo "<a href=\"\">" . $row['tac_gia'] . "</a>";
+                                $tac_gia = $row['tac_gia'];
+                                echo "<a href=\"./display_books.php?tac_gia=$tac_gia\">$tac_gia</a>";
                             }
                         ?>
                     </div>

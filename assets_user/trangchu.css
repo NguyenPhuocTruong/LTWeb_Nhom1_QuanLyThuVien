@@ -47,7 +47,7 @@ main {
     font-weight: normal;
 }
 
-h2.label {
+.label {
     text-align: left;
     text-transform: uppercase;
     margin: 10px;

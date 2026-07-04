@@ -57,7 +57,10 @@
                         <p id="nha_xuat_ban">Nhà xuất bản: <b><?php echo $result['nha_xb'] ?></b></p>
                     </div>
                     <div>
-                        <p>Tác giả: <b><?php echo $result['tac_gia'] ?></b></p><br>
+                        <p>Tác giả: <b><?php 
+                            $tac_gia = $result['tac_gia'];
+                            echo "<a href=\"./display_books.php?tac_gia=$tac_gia\">$tac_gia</a>";
+                        ?></b></p><br>
                         <p>Số lượng sách còn lại: <b><?php echo $result['so_luong'] ?></b></p>
                     </div>
                 </div>
@@ -65,8 +68,17 @@
             <div class="detail_info">
                 <h2>Thông tin chi tiết</h2>
                 <div><p class="info_name">Mã sách</p><p><?php echo $result['ma_sach'] ?></p></div>
+                <div><p class="info_name">Thể loại</p><p><?php 
+                    $the_loai = $result['the_loai'];
+                    $quoc_gia = $result['quoc_gia'];
+                    $lan = ($quoc_gia == "vietnam") ? "Sách Tiếng Việt":"Foreign Books";
+                    echo "<a href=\"./display_books.php?quoc_gia=$quoc_gia\">$lan</a> > <a href=\"./display_books.php?the_loai=$the_loai\">$the_loai</a>";
+                ?></p></div>
                 <div><p class="info_name">Tên nhà cung cấp</p><p><?php echo $result['nha_cung_cap'] ?></p></div>
-                <div><p class="info_name">Tác giả</p><p><?php echo $result['tac_gia'] ?></p></div>
+                <div><p class="info_name">Tác giả</p><?php 
+                    $tac_gia = $result['tac_gia'];
+                    echo "<a href=\"./display_books.php?tac_gia=$tac_gia\">$tac_gia</a>";
+                ?></div>
                 <div><p class="info_name">NXB</p><p><?php echo $result['nha_xb'] ?></p></div>
                 <div><p class="info_name">Năm XB</p><p><?php echo $result['nam_xb'] ?></p></div>
             </div>
