@@ -8,6 +8,7 @@ CREATE TABLE library.sach (
     the_loai VARCHAR(50) NOT NULL collate 'utf8mb4_unicode_ci',
     quoc_gia VARCHAR(50) NOT NULL,
     so_luong INT NOT NULL,
+    mo_ta VARCHAR(60000) NOT NULL collate 'utf8mb4_unicode_ci',
     anh_bia mediumblob NOT NULL
 );
 
