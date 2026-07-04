@@ -87,6 +87,7 @@ input[type="search"] {
     outline: 0;
     border: 0;
     border-radius: 10px;
+    width: 90%;
 }
 
 div.search div.search_bar {
@@ -97,6 +98,7 @@ div.search div.search_bar {
     background-color: white;
     border-radius: 15px;
     /* border: 2px solid red; */
+    width: 90%;
 }
 
 .search_button {
