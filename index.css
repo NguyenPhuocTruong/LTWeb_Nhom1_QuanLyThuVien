@@ -83,7 +83,7 @@ input[type="search"] {
     font-size: 20px;
     font-weight: 500;
     height: 40px;
-    width: 600px;
+    width: 90%;
     outline: 0;
     border: 0;
     border-radius: 10px;
@@ -97,6 +97,7 @@ div.search div.search_bar {
     background-color: white;
     border-radius: 15px;
     /* border: 2px solid red; */
+    width: 90%;
 }
 
 .search_button {
