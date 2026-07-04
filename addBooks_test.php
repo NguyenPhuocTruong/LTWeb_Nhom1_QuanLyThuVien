@@ -44,7 +44,7 @@
             "INSERT INTO sach (ten_sach, tac_gia, nam_xb, nha_xb, nha_cung_cap, the_loai, quoc_gia, so_luong, mo_ta, anh_bia) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
         );
 
-        // luu anh vao csdl
+        // luu thong tin va anh vao csdl
         $image_data = file_get_contents($_FILES['anh_bia']['tmp_name']);
         $stm->bind_param(
             "ssissssiss", 
@@ -67,5 +67,13 @@
             echo "<h1>Mo ta:</h1><br>" . $_POST['mo_ta'];
         } else echo "upload fail: " . $stm->error;
         $stm->close();
+
+        // kiem tra the loai da ton tai trong bang theloai chua, neu chua thi them vao
+        $theloai = $_POST['the_loai'];
+        if ($mysqli->query("SELECT * FROM theloai WHERE ten_the_loai = \"$theloai\"")->num_rows == 0){
+            $stm = $mysqli->prepare("INSERT INTO theloai (ten_the_loai) VALUES (?)");
+            $stm->bind_param("s", $_POST['the_loai']);
+            if (!$stm->execute()) echo "update theloai fail: " . $stm->error;
+        }
     } else echo "<p style=\"color: red\">book information required</p>";
 ?>

@@ -31,31 +31,34 @@
                                 echo "<a href=\"\">" . $row['the_loai'] . "</a>";
                             }
                         ?>
-                        <!-- <a href="">Thể loại1</a>
-                        <a href="">Thể loại2</a>
-                        <a href="">Thể loại3</a> -->
-                        <!-- <a href="">Thể loại4</a>
-                        <a href="">Thể loại5</a> -->
                     </div>
                 </li>
                 <li class="dropdown">
                     <a href="">Foreign Books <i class="fa-solid fa-angle-down"></i></a>
                     <div class="dropdown_content">
-                        <a href="">Thể loại1</a>
-                        <a href="">Thể loại2</a>
-                        <a href="">Thể loại3</a>
-                        <a href="">Thể loại4</a>
-                        <a href="">Thể loại5</a>
+                        <?php 
+                            require_once("../mysqlConnect.php");
+                            $mysqli->select_db("library");
+                            
+                            $result = $mysqli->query("SELECT DISTINCT the_loai FROM sach WHERE quoc_gia=\"nuocngoai\"");
+                            while ($row = $result->fetch_assoc()){
+                                echo "<a href=\"\">" . $row['the_loai'] . "</a>";
+                            }
+                        ?>
                     </div>
                 </li>
                 <li class="dropdown">
                     <a href="">Tác Giả <i class="fa-solid fa-angle-down"></i></a>
                     <div class="dropdown_content">
-                        <a href="">Tác giả1</a>
-                        <a href="">Tác giả2</a>
-                        <a href="">Tác giả3</a>
-                        <a href="">Tác giả4</a>
-                        <a href="">Tác giả5</a>
+                        <?php 
+                            require_once("../mysqlConnect.php");
+                            $mysqli->select_db("library");
+                            
+                            $result = $mysqli->query("SELECT DISTINCT tac_gia FROM sach");
+                            while ($row = $result->fetch_assoc()){
+                                echo "<a href=\"\">" . $row['tac_gia'] . "</a>";
+                            }
+                        ?>
                     </div>
                 </li>
             </ul>
