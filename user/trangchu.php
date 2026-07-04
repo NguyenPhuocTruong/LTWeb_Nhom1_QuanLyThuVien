@@ -24,8 +24,8 @@
                     $image_encode = base64_encode($row['anh_bia']);
                     echo "
                         <div class=\"book_container\">
-                            <a href=\"./sanpham.php\"><img src=\"data:image/jpg;charset=utf8;base64,$image_encode\" alt=\"image\"></a><br><br>
-                            <a href=\"./sanpham.php\">" . $row['ten_sach'] . "</a>
+                            <a href=\"./sanpham.php?ma_sach=" . $row['ma_sach'] . "\"\"><img src=\"data:image/jpg;charset=utf8;base64,$image_encode\" alt=\"image\"></a><br><br>
+                            <a href=\"./sanpham.php?ma_sach=" . $row['ma_sach'] . "\">" . $row['ten_sach'] . "</a>
                         </div>
                     ";
                 }
@@ -34,11 +34,14 @@
         <div class="book_area">
             <h2 class="label">foreign books</h2>
             <?php 
-                for ($i = 0; $i < 14; $i++){
+                $result = $mysqli->query("SELECT * FROM sach WHERE quoc_gia = \"nuocngoai\"");
+
+                while ($row = $result->fetch_assoc()){
+                    $image_encode = base64_encode($row['anh_bia']);
                     echo "
                         <div class=\"book_container\">
-                            <a href=\"./sanpham.php\"><img src=\"../assets_user/book_images/nha_gia_kim.webp\" alt=\"image\"></a><br><br>
-                            <a href=\"./sanpham.php\">Nhà giả kim</a>
+                            <a href=\"./sanpham.php?ma_sach=" . $row['ma_sach'] . "\"\"><img src=\"data:image/jpg;charset=utf8;base64,$image_encode\" alt=\"image\"></a><br><br>
+                            <a href=\"./sanpham.php?ma_sach=" . $row['ma_sach'] . "\">" . $row['ten_sach'] . "</a>
                         </div>
                     ";
                 }
