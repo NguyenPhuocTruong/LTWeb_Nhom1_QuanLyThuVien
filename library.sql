@@ -6,6 +6,7 @@ CREATE TABLE library.sach (
     nha_xb VARCHAR(50) NOT NULL collate 'utf8mb4_unicode_ci',
     nha_cung_cap VARCHAR(50) NOT NULL collate 'utf8mb4_unicode_ci',
     the_loai VARCHAR(50) NOT NULL collate 'utf8mb4_unicode_ci',
+    quoc_gia VARCHAR(50) NOT NULL,
     so_luong INT NOT NULL,
     anh_bia mediumblob NOT NULL
 );
