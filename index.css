@@ -87,6 +87,7 @@ input[type="search"] {
     outline: 0;
     border: 0;
     border-radius: 10px;
+    width: 90%;
 }
 
 div.search div.search_bar {
