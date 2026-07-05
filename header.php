@@ -3,8 +3,29 @@
         <a href="./trangchu.php"><div class="logo"></div></a>
         <div class="search">
             <div class="search_bar">
-                <button class="search_button"><i class="fa-solid fa-magnifying-glass"></i></button>
-                <input type="search" placeholder="Tìm tên sách..." name="bookname">
+                <form action="./display_books.php" method="post" id="search_form" autocomplete="off">
+                    <button class="search_button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <input onkeyup="showHint(this.value)" type="search" placeholder="Tìm tên sách..." name="bookname" value="<?php if (isset($_POST['bookname'])) echo $_POST['bookname'] ?>">
+                </form>
+                <script>
+                    function showHint(str){
+                        if (str.length == 0){
+                            document.getElementById("hint").innerHTML = "";
+                            return;
+                        } else {
+                            var xhr = new XMLHttpRequest();
+                            xhr.onreadystatechange = function() {
+                                if (this.readyState == 4 && this.status == 200){
+                                    document.getElementById("hint").innerHTML = this.responseText;
+                                }
+                            };
+                            xhr.open("GET", "./search.php?f=" + str, true); // true la bat dong bo
+                            xhr.send();
+                        }
+                    }
+                </script>
+                <div class="dropdown_result" id="hint">
+                </div>
             </div>
             <div class="login_container">
                 <div class="login">
@@ -25,7 +46,7 @@
                         <?php 
                             require_once("../mysqlConnect.php");
                             $mysqli->select_db("library");
-                            
+
                             $result = $mysqli->query("SELECT DISTINCT the_loai FROM sach WHERE quoc_gia=\"vietnam\"");
                             while ($row = $result->fetch_assoc()){
                                 $the_loai = $row['the_loai'];
