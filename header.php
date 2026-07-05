@@ -1,6 +1,6 @@
 <div class="upper_header"></div>
     <div class="lower_header">
-        <a href=""><div class="logo"></div></a>
+        <a href="./trangchu.php"><div class="logo"></div></a>
         <div class="search">
             <div class="search_bar">
                 <button class="search_button"><i class="fa-solid fa-magnifying-glass"></i></button>
