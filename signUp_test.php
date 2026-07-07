@@ -1,3 +1,6 @@
+<!-- start session -->
+ <?php session_start() ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +31,7 @@
             return $data;
         }
 
-        function isEmailExist(string $email, mysqli $mysqli) : bool {
+        function isEmailExist(string $email, mysqli $mysqli): bool {
             $stm = $mysqli->prepare("SELECT * FROM nguoidung WHERE email=?");
             $stm->bind_param("s", $email);
             if ($stm->execute()){
@@ -55,7 +58,9 @@
                     $stm->bind_param("sss", $email, $name, $hashed_password);
                     if ($stm->execute()){
                         // chuyen huong nguoi dung den trang thong tin ca nhan userProfile
-                        header("Location: ./userProfile_test.php?email=$email");
+                        header("Location: ./userProfile_test.php");
+                        $_SESSION['email'] = $email;
+                        $_SESSION['name'] = $name;
                     } else echo "Loi trong luc tao tai khoan: " . $stm->error;
                 } else echo "
                     <h3 style=\"color: red\">Tai khoan $email da ton tai !</h3>

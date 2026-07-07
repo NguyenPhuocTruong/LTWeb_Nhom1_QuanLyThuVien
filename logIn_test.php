@@ -1,3 +1,5 @@
+<?php session_start() ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,6 +36,7 @@
                         $stored_password = $result->fetch_assoc()['mat_khau'];
                         if (password_verify($password, $stored_password)){
                             header("Location: ./user/trangchu.php");
+                            $_SESSION['email'] = $email;
                         } else $message = "
                             <h3 style=\"color: red\">Sai mat khau !</h3>
                             <script>

@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <div class="upper_header"></div>
     <div class="lower_header">
         <a href="./trangchu.php"><div class="logo"></div></a>
@@ -34,8 +36,19 @@
                 </div>
                 <div class="login">
                     <i class="fa-solid fa-circle-user" style="font-size: 50px;"></i>
-                    <div><a href="../logIn_test.php" style="font-size: 19px; font-weight: bolder;">Đăng nhập</a><br><a href="../signUp_test.php" style="font-size: 15px;">Đăng ký</a></div>
+                    <div id="login"><a href="../logIn_test.php" style="font-size: 19px; font-weight: bolder;">Đăng nhập</a><br><a href="../signUp_test.php" style="font-size: 15px;">Đăng ký</a></div>
                 </div>
+                <?php 
+                    // check session
+                    if (isset($_SESSION['email'])){
+                    echo "
+                        <script>
+                            const div = document.getElementById(\"login\");
+                            div.innerHTML = \"<a href=\\\"../userProfile_test.php\\\" style=\\\"font-size: 19px; font-weight: bolder;\\\">Tài khoản</a>\"
+                        </script>
+                    ";
+                    }
+                ?>
             </div>
         </div>
         <div class="catalogue">
