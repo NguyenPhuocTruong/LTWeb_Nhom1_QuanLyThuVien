@@ -28,21 +28,33 @@
             if (isset($_POST['email']) and isset($_POST['password'])){
                 $email = $_POST['email'];
                 $password = $_POST['password'];
+
                 $stm = $mysqli->prepare("SELECT mat_khau FROM nguoidung WHERE email=?");
                 $stm->bind_param("s", $email);
                 $message = "";
+
                 if ($stm->execute()){
                     $result = $stm->get_result();
                     if ($result->num_rows == 1){
                         $stored_password = $result->fetch_assoc()['mat_khau'];
                         if (password_verify($password, $stored_password)){
-                            $_SESSION['email'] = $email;
+                            $_SESSION['email'] = $email; // lay email cho session
                             $stm = $mysqli->prepare("SELECT hoten FROM nguoidung WHERE email = ?");
                             $stm->bind_param("s", $email);
                             if ($stm->execute()){
                                 $result = $stm->get_result();
                                 if ($result->num_rows > 0){
-                                    $_SESSION['name'] = $result->fetch_assoc()['hoten'];
+                                    $_SESSION['name'] = $result->fetch_assoc()['hoten']; // lay ten user cho session
+
+                                    // lay danh sach sach da muon cua user
+                                    $sql = "SELECT muon_sach.ma_sach, sach.ten_sach FROM muon_sach INNER JOIN sach ON muon_sach.ma_sach = sach.ma_sach 
+                                    WHERE muon_sach.email = '$email'";
+                                    $result = $mysqli->query($sql);
+                                    while ($row = $result->fetch_assoc()){
+                                        // $_SESSION['sach_da_muon'] la mot associative array, ma_sach la key, ten_sach la value
+                                        $_SESSION['sach_da_muon'][$row['ma_sach']] = $row['ten_sach'];
+                                    }
+
                                     header("Location: ./user/trangchu.php");
                                 } else echo "Loi khong tim thay ten trong csdl";
                             } else echo "Loi trong luc truy van csdl: " . $stm->error;
