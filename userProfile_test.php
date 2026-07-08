@@ -13,7 +13,12 @@
     <?php 
         $email = $_SESSION['email'];
         $name = $_SESSION['name'];
-        echo "<h4>Email: $email</h4><br><h4>Ho ten: $name</h4>";
+        $sach_da_muon = $_SESSION['sach_da_muon'];
+        $so_luong = count($sach_da_muon);
+        echo "<h4>Email: $email</h4><br><h4>Ho ten: $name</h4><br><h4>Sach da muon: $so_luong</h4><br>";
+        foreach($sach_da_muon as $ma_sach=>$ten_sach){
+            echo "$ten_sach (Ma sach: $ma_sach)<br>";
+        }
     ?>
     <a href="./user/trangchu.php"><button>Quay ve trang chu</button></a>
     <a href="./logOut_test.php"><button>Dang xuat</button></a>

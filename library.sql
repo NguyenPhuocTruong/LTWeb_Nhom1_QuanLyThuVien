@@ -24,6 +24,7 @@ CREATE TABLE library.nguoidung (
 );
 
 CREATE TABLE library.muon_sach (
+    ma_giao_dich INT auto_increment PRIMARY KEY,
     email VARCHAR(100),
     ma_sach INT,
     so_luong_sach_muon INT NOT NULL,

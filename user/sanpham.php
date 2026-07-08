@@ -13,7 +13,7 @@
     <?php include "../header.php" ?>
     <main>
         <div class="book_image">
-            <div class="image_container">
+            <div class="image_container" id="image_container">
                 <?php 
                     require_once("../mysqlConnect.php");
                     $mysqli->select_db("library");
@@ -28,6 +28,17 @@
                                 $result = $stm->get_result()->fetch_assoc();
                                 $image_encode = base64_encode($result['anh_bia']);
                                 echo "<img src=\"data:image/jpg;charset=utf8;base64,$image_encode\" alt=\"image\">";
+
+                                // kiem tra so luong con lai cua sach
+                                if ($result['so_luong'] == 0) echo "<button style=\"background-color: darkred\">Sách đã hết</button>";
+                                // kiem tra user da dang nhap chua
+                                else if (!isset($_SESSION['email'])) echo "<button style=\"background-color: darkred\">Đăng nhập để mượn sách</button>";
+                                // kiem tra user da muon sach nay chua
+                                else if (array_key_exists($ma_sach, $_SESSION['sach_da_muon'])){
+                                    echo "<button style=\"background-color: darkred\">Bạn đã mượn sách này</button>";
+                                    echo "<button id=\"butt\">Trả sách</button>";
+                                }
+                                else echo "<button id=\"butt\" onclick=\"muon_sach()\">Mượn sách</button>";
                             } else {
                                 echo "<p>Lỗi không tải được ảnh:</p>" . $stm->error;
                             }
@@ -39,12 +50,51 @@
                         echo "<p>Xin lỗi bạn ! Trang đang gặp một số vấn đề:</p>" . $e->getMessage();
                     }
                 ?>
-                <button id="butt">Mượn sách</button>
+                <!-- <button id="butt" onclick="muon_sach()">Mượn sách</button> -->
                 <script>
-                    const butt = document.getElementById("butt");
-                    butt.addEventListener('click', (e) => {
-                        butt.textContent = "Bạn đã mượn sách này";
-                    })
+                    // const butt = document.getElementById("butt");
+                    // butt.addEventListener('click', (e) => {
+                    //     butt.textContent = "Bạn đã mượn sách này";
+                    //     butt.disabled = true;
+                    //     butt.style.backgroundColor = "black";
+
+                    //     // tao nut tra sach
+                    //     const tra_sach_butt = document.createElement("button");
+                    //     tra_sach_butt.textContent = "Trả sách";
+                    //     tra_sach_butt.id = "butt";
+
+                    //     // them nut tra sach vao image_container
+                    //     const div = document.getElementById("image_container");
+                    //     div.appendChild(tra_sach_butt);
+                    // })
+                    function muon_sach(){
+                        const butt = document.getElementById("butt");
+                        butt.textContent = "Chờ chút...";
+                        butt.disabled = true;
+                        butt.style.backgroundColor = "black";
+                        butt.style.cursor = "default";
+
+                        // tao nut tra sach
+                        const tra_sach_butt = document.createElement("button");
+                        tra_sach_butt.textContent = "Trả sách";
+                        tra_sach_butt.id = "butt";      
+
+                        // them nut tra sach vao image_container
+                        const div = document.getElementById("image_container");
+                        div.appendChild(tra_sach_butt);
+
+                        // lay ma sach va ten sach sau do gui yeu cau cho muonsach.php
+                        const ma_sach = document.getElementById("ma_sach").textContent;
+                        const ten_sach = document.getElementById("book_name").textContent;
+                        var xhr = new XMLHttpRequest();
+                        xhr.onreadystatechange = function(){
+                            if (this.readyState == 4 && this.status == 200){
+                                butt.textContent = this.responseText;
+                            }
+                        }
+                        xhr.open("GET", "./muonsach.php?ma_sach=" + ma_sach + "&ten_sach=" + ten_sach, true);
+                        xhr.send();
+                    };
                 </script>
             </div>
         </div>
@@ -67,7 +117,7 @@
             </div>
             <div class="detail_info">
                 <h2>Thông tin chi tiết</h2>
-                <div><p class="info_name">Mã sách</p><p><?php echo $result['ma_sach'] ?></p></div>
+                <div><p class="info_name">Mã sách</p><p id="ma_sach"><?php echo $result['ma_sach'] ?></p></div>
                 <div><p class="info_name">Thể loại</p><p><?php 
                     $the_loai = $result['the_loai'];
                     $quoc_gia = $result['quoc_gia'];

@@ -62,6 +62,8 @@
                         header("Location: ./userProfile_test.php");
                         $_SESSION['email'] = $email;
                         $_SESSION['name'] = $name;
+                        $_SESSION['sach_da_muon'] = array();
+                        // $_SESSION['sach_da_muon'][0] = "ben xe";
                     } else echo "Loi trong luc tao tai khoan: " . $stm->error;
                 } else echo "
                     <h3 style=\"color: red\">Tai khoan $email da ton tai !</h3>

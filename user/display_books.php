@@ -14,7 +14,6 @@
         
     <main>
         <div class="book_area">
-            <!-- <h2 class="label">sách việt nam</h2> -->
             <?php 
                 require_once("../mysqlConnect.php");
                 $mysqli->select_db("library");
