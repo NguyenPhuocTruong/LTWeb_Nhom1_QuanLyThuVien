@@ -11,8 +11,9 @@
     <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
         Email: <input type="email" name="email" id="email" required value=<?php if (isset($_POST['email'])) echo $_POST['email'] ?>><br><br>
         Mat khau: <input type="password" name="password" id="password" required value=<?php if (isset($_POST['password'])) echo $_POST['password'] ?>><br><br>
-        <input type="submit"> <input type="reset">        
-    </form>
+        <input type="submit"> <input type="reset">
+    </form><br>
+    <a href="./user/trangchu.php"><button>Quay ve trang chu</button></a>  
     <script>
         if (window.history.replaceState){
             window.history.replaceState(null, null, window.location.href);
@@ -35,8 +36,16 @@
                     if ($result->num_rows == 1){
                         $stored_password = $result->fetch_assoc()['mat_khau'];
                         if (password_verify($password, $stored_password)){
-                            header("Location: ./user/trangchu.php");
                             $_SESSION['email'] = $email;
+                            $stm = $mysqli->prepare("SELECT hoten FROM nguoidung WHERE email = ?");
+                            $stm->bind_param("s", $email);
+                            if ($stm->execute()){
+                                $result = $stm->get_result();
+                                if ($result->num_rows > 0){
+                                    $_SESSION['name'] = $result->fetch_assoc()['hoten'];
+                                    header("Location: ./user/trangchu.php");
+                                } else echo "Loi khong tim thay ten trong csdl";
+                            } else echo "Loi trong luc truy van csdl: " . $stm->error;
                         } else $message = "
                             <h3 style=\"color: red\">Sai mat khau !</h3>
                             <script>

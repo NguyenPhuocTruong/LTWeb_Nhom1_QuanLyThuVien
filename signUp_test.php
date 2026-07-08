@@ -14,7 +14,8 @@
         Ho ten: <input type="text" name="name" required value=<?php if (isset($_POST['name'])) echo $_POST['name'] ?>><br><br>
         Mat khau: <input type="password" name="password" required value=<?php if (isset($_POST['password'])) echo $_POST['password'] ?>><br><br>
         <input type="submit"> <input type="reset">
-    </form>
+    </form><br>
+    <a href="./user/trangchu.php"><button>Quay ve trang chu</button></a>
     <script>
         if (window.history.replaceState) window.history.replaceState(null, null, window.location.href);
     </script>

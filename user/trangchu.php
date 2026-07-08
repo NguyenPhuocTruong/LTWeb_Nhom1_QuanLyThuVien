@@ -15,7 +15,7 @@
     <?php include '../header.php' ?>
     <main>
         <div class="book_area">
-            <h2 class="label">sách việt nam | session email (test xong se xoa doan nay): <?php if (isset($_SESSION['email'])) echo $_SESSION['email'] ?></h2>
+            <h2 class="label">sách việt nam | session email (test): <?php if (isset($_SESSION['email'])) echo $_SESSION['email'] ?></h2>
             <?php 
                 require_once("../mysqlConnect.php");
                 $mysqli->select_db("library");
