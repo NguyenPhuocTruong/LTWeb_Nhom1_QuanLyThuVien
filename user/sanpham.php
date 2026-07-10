@@ -77,7 +77,8 @@
                         // tao nut tra sach
                         const tra_sach_butt = document.createElement("button");
                         tra_sach_butt.textContent = "Trả sách";
-                        tra_sach_butt.id = "butt";      
+                        tra_sach_butt.id = "return_butt";
+                        tra_sach_butt.onclick = "tra_sach()"; // them chuc nang tra sach cho nut tra sach
 
                         // them nut tra sach vao image_container
                         const div = document.getElementById("image_container");
@@ -86,6 +87,7 @@
                         // lay ma sach va ten sach sau do gui yeu cau cho muonsach.php
                         const ma_sach = document.getElementById("ma_sach").textContent;
                         const ten_sach = document.getElementById("book_name").textContent;
+
                         var xhr = new XMLHttpRequest();
                         xhr.onreadystatechange = function(){
                             if (this.readyState == 4 && this.status == 200){
@@ -95,6 +97,14 @@
                         xhr.open("GET", "./muonsach.php?ma_sach=" + ma_sach + "&ten_sach=" + ten_sach, true);
                         xhr.send();
                     };
+
+                    function tra_sach(){
+                        // lay ma sach va ten sach
+                        const ma_sach = document.getElementById("ma_sach").textContent;
+                        const ten_sach = document.getElementById("book_name").textContent;
+
+                        // xoa 2 nut "tra sach" va "ban da muon sach nay"
+                    }
                 </script>
             </div>
         </div>
