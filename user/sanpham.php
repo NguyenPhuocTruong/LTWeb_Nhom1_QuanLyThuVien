@@ -30,12 +30,12 @@
                                 echo "<img src=\"data:image/jpg;charset=utf8;base64,$image_encode\" alt=\"image\">";
 
                                 // kiem tra so luong con lai cua sach
-                                if ($result['so_luong'] == 0) echo "<button style=\"background-color: darkred\">Sách đã hết</button>";
+                                if ($result['so_luong'] == 0) echo "<button id=\"inform\" style=\"background-color: darkred\">Sách đã hết</button>";
                                 // kiem tra user da dang nhap chua
-                                else if (!isset($_SESSION['email'])) echo "<button style=\"background-color: darkred\">Đăng nhập để mượn sách</button>";
+                                else if (!isset($_SESSION['email'])) echo "<button id=\"inform\" style=\"background-color: darkred\">Đăng nhập để mượn sách</button>";
                                 // kiem tra user da muon sach nay chua
                                 else if (array_key_exists($ma_sach, $_SESSION['sach_da_muon'])){
-                                    echo "<button style=\"background-color: darkred\">Bạn đã mượn sách này</button>";
+                                    echo "<button id=\"inform\" style=\"background-color: darkred\">Bạn đã mượn sách này</button>";
                                     echo "<button id=\"butt\">Trả sách</button>";
                                 }
                                 else echo "<button id=\"butt\" onclick=\"muon_sach()\">Mượn sách</button>";
@@ -104,6 +104,7 @@
                         const ten_sach = document.getElementById("book_name").textContent;
 
                         // xoa 2 nut "tra sach" va "ban da muon sach nay"
+                        const inform_butt = document.getElementById("inform");
                     }
                 </script>
             </div>
