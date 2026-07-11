@@ -36,7 +36,7 @@
                                 // kiem tra user da muon sach nay chua
                                 else if (array_key_exists($ma_sach, $_SESSION['sach_da_muon'])){
                                     echo "<button id=\"inform\" style=\"background-color: darkred\">Bạn đã mượn sách này</button>";
-                                    echo "<button id=\"butt\">Trả sách</button>";
+                                    echo "<button id=\"butt\" onclick=\"tra_sach()\">Trả sách</button>";
                                 }
                                 else echo "<button id=\"butt\" onclick=\"muon_sach()\">Mượn sách</button>";
                             } else {
@@ -74,15 +74,15 @@
                         butt.style.backgroundColor = "black";
                         butt.style.cursor = "default";
 
-                        // tao nut tra sach
-                        const tra_sach_butt = document.createElement("button");
-                        tra_sach_butt.textContent = "Trả sách";
-                        tra_sach_butt.id = "return_butt";
-                        tra_sach_butt.onclick = "tra_sach()"; // them chuc nang tra sach cho nut tra sach
+                        // // tao nut tra sach
+                        // const tra_sach_butt = document.createElement("button");
+                        // tra_sach_butt.textContent = "Trả sách";
+                        // tra_sach_butt.id = "return_butt";
+                        // tra_sach_butt.onclick = tra_sach(); // them chuc nang tra sach cho nut tra sach
 
                         // them nut tra sach vao image_container
                         const div = document.getElementById("image_container");
-                        div.appendChild(tra_sach_butt);
+                        // div.appendChild(tra_sach_butt);
 
                         // lay ma sach va ten sach sau do gui yeu cau cho muonsach.php
                         const ma_sach = document.getElementById("ma_sach").textContent;
@@ -91,11 +91,13 @@
                         var xhr = new XMLHttpRequest();
                         xhr.onreadystatechange = function(){
                             if (this.readyState == 4 && this.status == 200){
-                                butt.textContent = this.responseText;
+                                document.innerHTML = this.responseText;
                             }
                         }
                         xhr.open("GET", "./muonsach.php?ma_sach=" + ma_sach + "&ten_sach=" + ten_sach, true);
                         xhr.send();
+                        alert("Bạn đã mượn sách thành công (Mã sách: " + ma_sach + ")");
+                        window.location.reload();
                     };
 
                     function tra_sach(){
@@ -103,8 +105,20 @@
                         const ma_sach = document.getElementById("ma_sach").textContent;
                         const ten_sach = document.getElementById("book_name").textContent;
 
-                        // xoa 2 nut "tra sach" va "ban da muon sach nay"
-                        const inform_butt = document.getElementById("inform");
+                        // lay the div class image_container
+                        // const div = document.getElementById("image_container");
+
+                        // gui yeu cau toi server bang xmlhttprequest
+                        var xhr = new XMLHttpRequest();
+                        xhr.onreadystatechange = function() {
+                            if (this.readyState == 4 && this.status == 200) {
+                                document.innerHTML = this.responseText;
+                            }
+                        }
+                        xhr.open("GET", "./trasach.php?ma_sach=" + ma_sach + "&ten_sach=" + ten_sach, true);
+                        xhr.send();
+                        alert("Bạn đã trả sách thành công (Mã sách: " + ma_sach + ")");
+                        window.location.reload();
                     }
                 </script>
             </div>
