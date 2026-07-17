@@ -10,8 +10,8 @@ $error = '';
 if (isset($_POST['dangki'])) {
     $email    = trim($_POST['email']);
     $hoten    = trim($_POST['hoten']);
-    $user     = trim($_POST['user']);
     $password = trim($_POST['password']);
+    $re_enter   = trim($_POST['re-enter']);
     $agree    = isset($_POST['check']);
 
     if (empty($email) || empty($hoten) || empty($user) || empty($password)) {
@@ -22,21 +22,22 @@ if (isset($_POST['dangki'])) {
         $error = '<script>alert("Mật khẩu phải có ít nhất 8 ký tự!")</script>';
     } else if (!$agree) {
         $error = '<script>alert("Bạn cần đồng ý với Điều khoản dịch vụ và Chính sách bảo mật!")</script>';
+    } else if ($password !== $re_enter){
+        $error = '<script>alert("Mật khẩu không trùng khớp")</script>';
     } else {
-        // Kiểm tra trùng username or email
-        $checkSql = 'SELECT id FROM nguoidung WHERE username = ? OR email = ?';
+        $checkSql = 'SELECT email FROM nguoidung WHERE email = ?';
         $checkStmt = $conn->prepare($checkSql);
-        $checkStmt->bind_param('ss', $user, $email);
+        $checkStmt->bind_param('s', $email);
         $checkStmt->execute();
         $checkResult = $checkStmt->get_result();
         if ($checkResult->num_rows > 0) {
-            $error = '<script>alert("Tên người dùng hoặc email đã tồn tại!")</script>';
+            $error = '<script>alert("Email đã tồn tại!")</script>';
         } else {
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-            $sql = 'INSERT INTO nguoidung (email, ho_ten, username, mat_khau) VALUES (?, ?, ?, ?)';
+            $sql = 'INSERT INTO nguoidung (email, ho_ten, mat_khau) VALUES (?, ?, ?)';
             if ($stmt = $conn->prepare($sql)) {
-                $stmt->bind_param('ssss', $email, $hoten, $user, $hashedPassword);
+                $stmt->bind_param('sss', $email, $hoten, $hashedPassword);
 
                 if ($stmt->execute()) {
                     echo '<script>
@@ -168,12 +169,12 @@ if (isset($_POST['dangki'])) {
                         <input class="form_input" name="hoten" value="<?php if(isset($_POST['hoten'])) echo $_POST['hoten'];?>" type="text" placeholder="Nhập họ và tên của bạn">
                     </div>
                     <div class="form-container__row">
-                        <label class="form_label">Tên đăng nhập</label>
-                        <input class="form_input" name="user" value="<?php if(isset($_POST['user'])) echo $_POST['user'];?>" type="text" placeholder="Nhập tên đăng nhập của bạn">
-                    </div>
-                    <div class="form-container__row">
                         <label class="form_label">Mật khẩu</label>
                         <input class="form_input" name="password" value="<?php if(isset($_POST['password'])) echo $_POST['password'];?>" type="password" placeholder="Nhập mật khẩu của bạn">
+                    </div>
+                    <div class="form-container__row">
+                        <label class="form_label">Nhập lại mật khẩu</label>
+                        <input class="form_input" name="re-enter" value="<?php if(isset($_POST['re-enter'])) echo $_POST['re-enter'];?>" type="password" placeholder="Nhập lại mật khẩu của bạn">
                     </div>
                     <div class="form_policy">
                         <input class="policy" type="checkbox" name="check"><label class="policy-text">Khi đăng kí, bạn đồng ý với chúng tôi về <a href="" class="policy-a">Điều khoản dịch vụ</a> & <a href="" class="policy-a">Chính sách bảo mật</a> 
@@ -189,7 +190,7 @@ if (isset($_POST['dangki'])) {
                 <!-- <div class="form-container__social">
                     <button class="btn-social"><a href="" class="google-icon"><i class="fa-brands fa-google"></i>Đăng ký bằng Google</a></button>
                 </div> -->
-                <div><p class="form-login">Bạn đã có tài khoản? <a href="">Đăng nhập</a></p></div>
+                <div><p class="form-login">Bạn đã có tài khoản? <a href="dangnhap.php">Đăng nhập</a></p></div>
             </div>
         </div>
     </div>
