@@ -8,13 +8,13 @@
     $error = ''; 
 
     if(isset($_POST['login'])){
-        $user = trim($_POST['user']);
+        $user = trim($_POST['email']);
         $password = trim($_POST['password']);
        
         if(empty($user) || empty($password)){
-            $error = '<script>alert("Tên đăng nhập và mật khẩu không được để trống!")</script>';
+            $error = '<script>alert("Email và mật khẩu không được để trống!")</script>';
         } else {
-            $sql = 'SELECT user FROM nguoidung WHERE username=? AND mat_khau=?';
+            $sql = 'SELECT user FROM nguoidung WHERE email=? AND mat_khau=?';
             if($stmt = $conn->prepare($sql)){
                 $stmt->bind_param('ss', $user, $password);
                 $stmt->execute();
@@ -22,7 +22,7 @@
                 
                 if($result->num_rows == 1){
                     $row = $result->fetch_assoc();
-                    $_SESSION['user'] = $row['user'];
+                    $_SESSION['email'] = $row['email'];
                     $_SESSION['password'] = $row['password'];
                     echo '<script>
                         alert("Đăng nhập thành công!");
@@ -30,7 +30,7 @@
                     </script>';
                     exit();
                 } else {
-                    $error = '<script>alert("Tên đăng nhập hoặc mật khẩu không chính xác!")</script>';
+                    $error = '<script>alert("Email hoặc mật khẩu không chính xác!")</script>';
                 }
                 $stmt->close();
             }
@@ -42,7 +42,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="form.css"> 
     <title>Đăng nhập tài khoản</title>
     <style>
         .form-container{
@@ -139,11 +138,11 @@
                 <h3>ĐĂNG NHẬP</h3>
             </div>
             <div class="form-container__form">
-                <form action="" method="post">  
+                <form action="" method="post">
                     <div class="form-container__row">
-                        <label class="form_label">Tên đăng nhập</label>
+                        <label class="form_label">Email:</label>
             
-                        <input class="form_input" type="text" name="user" value="<?php if(isset($_POST['user'])) echo $_POST['user'];?>" placeholder="Nhập tên đăng nhập của bạn">
+                        <input class="form_input" type="text" name="email" value="<?php if(isset($_POST['email'])) echo $_POST['email'];?>" placeholder="Nhập tên đăng nhập của bạn">
                     </div>
                     <div class="form-container__row">
                         <label class="form_label">Mật khẩu</label>
@@ -159,7 +158,7 @@
                     </div>
                 </form>
                 <hr>
-                <div><p class="form-login">Bạn chưa có tài khoản? <a href="dangki.php">Đăng kí</a></p></div>
+                <div><p class="form-login">Bạn chưa có tài khoản? <a href="dangky.php">Đăng kí</a></p></div>
             </div>
         </div>
     </div>
