@@ -60,10 +60,10 @@ if (isset($_POST['dangki'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="form.css">  -->
+    <link rel="stylesheet" href="./assets_auth/form.css"> 
     <script src="https://kit.fontawesome.com/67ecaf9947.js" crossorigin="anonymous"></script>
     <title>Đăng ký tài khoản</title>
-    <style>
+    <!-- <style>
         
         .form-container{
             position: fixed;
@@ -149,12 +149,12 @@ if (isset($_POST['dangki'])) {
             text-align: center;
             text-decoration: none;
         }
-    </style>
+    </style> -->
 </head>
 <body>
     <div class="form-container">
         <div class="form-container__bg"></div>
-        <div class="form-container__content">
+        <div class="signup_form-container__content">
             <div class="form-container__header">
                 <h3>Tạo tài khoản của bạn</h3>
             </div>

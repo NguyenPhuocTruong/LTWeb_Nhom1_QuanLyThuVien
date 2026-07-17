@@ -42,8 +42,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets_auth/form.css">
     <title>Đăng nhập tài khoản</title>
-    <style>
+    <!-- <style>
         .form-container{
             position: fixed;
             top: 0;
@@ -128,12 +129,12 @@
             text-align: center;
             text-decoration: none;
         }
-    </style>
+    </style> -->
 </head>
 <body>
     <div class="form-container">
         <div class="form-container__bg"></div>
-        <div class="form-container__content">
+        <div class="login_form-container__content">
             <div class="form-container__header">
                 <h3>ĐĂNG NHẬP</h3>
             </div>
