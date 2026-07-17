@@ -14,7 +14,7 @@ if (isset($_POST['dangki'])) {
     $re_enter   = trim($_POST['re-enter']);
     $agree    = isset($_POST['check']);
 
-    if (empty($email) || empty($hoten) || empty($user) || empty($password)) {
+    if (empty($email) || empty($hoten) || empty($password) || empty($re_enter) || empty($agree)) {
         $error = '<script>alert("Vui lòng điền đầy đủ thông tin!")</script>';
     } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = '<script>alert("Email không hợp lệ!")</script>';
@@ -159,7 +159,7 @@ if (isset($_POST['dangki'])) {
                 <h3>Tạo tài khoản của bạn</h3>
             </div>
             <div class="form-container__form">
-                <form action="" method="post">
+                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="post">
                     <div class="form-container__row">
                         <label class="form_label">E-mail</label>
                         <input class="form_input" name="email" value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>" type="email" placeholder="Nhập email của bạn">
