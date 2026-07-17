@@ -41,6 +41,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="form.css"> 
     <title>Đăng nhập tài khoản</title>
 </head>
 <body>
@@ -50,7 +51,7 @@
                 <h3>ĐĂNG NHẬP</h3>
             </div>
             <div class="form-container__form">
-                <form action="/*CÒN TRỐNG */" method="post">
+                <form action="" method="post">  
                     <div class="form-container__row">
                         <label class="form_label">Tên đăng nhập</label>
             
