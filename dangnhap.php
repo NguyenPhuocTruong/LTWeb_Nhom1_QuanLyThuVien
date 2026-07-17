@@ -23,6 +23,7 @@
                 if($result->num_rows == 1){
                     $row = $result->fetch_assoc();
                     $_SESSION['user'] = $row['user'];
+                    $_SESSION['password'] = $row['password'];
                     echo '<script>
                         alert("Đăng nhập thành công!");
                         window.location.href = "index.php";
@@ -50,15 +51,15 @@
                 <h3>ĐĂNG NHẬP</h3>
             </div>
             <div class="form-container__form">
-                <form action="/*CÒN TRỐNG */" method="post">
+                <form action="" method="post">
                     <div class="form-container__row">
                         <label class="form_label">Tên đăng nhập</label>
             
-                        <input class="form_input" type="text" name="user" placeholder="Nhập tên đăng nhập của bạn">
+                        <input class="form_input" type="text" name="user" value="<?php if(isset($_POST['user'])) echo $_POST['user'];?>" placeholder="Nhập tên đăng nhập của bạn">
                     </div>
                     <div class="form-container__row">
                         <label class="form_label">Mật khẩu</label>
-                        <input class="form_input" type="password" name="password" placeholder="Nhập mật khẩu của bạn">
+                        <input class="form_input" type="password" name="password" value="<?php if(isset($_POST['password'])) echo $_POST['password'];?>" placeholder="Nhập mật khẩu của bạn">
                     </div>
                    
                     <?php if(!empty($error)): ?>
