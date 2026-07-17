@@ -139,11 +139,7 @@
                 <h3>ĐĂNG NHẬP</h3>
             </div>
             <div class="form-container__form">
-<<<<<<< HEAD
                 <form action="" method="post">  
-=======
-                <form action="" method="post">
->>>>>>> d15e26a6ea80833831290faab27253ceb7257682
                     <div class="form-container__row">
                         <label class="form_label">Tên đăng nhập</label>
             
