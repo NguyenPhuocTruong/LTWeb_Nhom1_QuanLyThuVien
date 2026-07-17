@@ -40,7 +40,7 @@ if (isset($_POST['dangki'])) {
 
                 if ($stmt->execute()) {
                     echo '<script>
-                        alert("Đăng ký thành công! Vui lòng đăng nhập.");
+                        alert("Đăng ký thành công!");
                         window.location.href = "dangnhap.php";
                     </script>';
                     exit();
@@ -59,10 +59,10 @@ if (isset($_POST['dangki'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="form.css"> 
+    <!-- <link rel="stylesheet" href="form.css">  -->
     <script src="https://kit.fontawesome.com/67ecaf9947.js" crossorigin="anonymous"></script>
     <title>Đăng ký tài khoản</title>
-    <!-- <style>
+    <style>
         
         .form-container{
             position: fixed;
@@ -137,18 +137,18 @@ if (isset($_POST['dangki'])) {
             border-radius: 5px;
             background-color: #8860D0;
         }
-        .btn-social{
+        /* .btn-social{
             width: 100%;
             height: 40px;
             border: 1px solid #ccc;
             border-radius: 5px;
             gap: 2px;
-        }
+        } */
         .form-login{
             text-align: center;
             text-decoration: none;
         }
-    </style> -->
+    </style>
 </head>
 <body>
     <div class="form-container">
@@ -161,19 +161,19 @@ if (isset($_POST['dangki'])) {
                 <form action="" method="post">
                     <div class="form-container__row">
                         <label class="form_label">E-mail</label>
-                        <input class="form_input" name="email" type="email" placeholder="Nhập email của bạn">
+                        <input class="form_input" name="email" value="<?php if(isset($_POST['email'])) echo $_POST['email']; ?>" type="email" placeholder="Nhập email của bạn">
                     </div>
                     <div class="form-container__row">
                         <label class="form_label">Họ và tên</label>
-                        <input class="form_input" name="hoten" type="text" placeholder="Nhập họ và tên của bạn">
+                        <input class="form_input" name="hoten" value="<?php if(isset($_POST['hoten'])) echo $_POST['hoten'];?>" type="text" placeholder="Nhập họ và tên của bạn">
                     </div>
                     <div class="form-container__row">
                         <label class="form_label">Tên đăng nhập</label>
-                        <input class="form_input" name="user" type="text" placeholder="Nhập tên đăng nhập của bạn">
+                        <input class="form_input" name="user" value="<?php if(isset($_POST['user'])) echo $_POST['user'];?>" type="text" placeholder="Nhập tên đăng nhập của bạn">
                     </div>
                     <div class="form-container__row">
                         <label class="form_label">Mật khẩu</label>
-                        <input class="form_input" name="password" type="password" placeholder="Nhập mật khẩu của bạn">
+                        <input class="form_input" name="password" value="<?php if(isset($_POST['password'])) echo $_POST['password'];?>" type="password" placeholder="Nhập mật khẩu của bạn">
                     </div>
                     <div class="form_policy">
                         <input class="policy" type="checkbox" name="check"><label class="policy-text">Khi đăng kí, bạn đồng ý với chúng tôi về <a href="" class="policy-a">Điều khoản dịch vụ</a> & <a href="" class="policy-a">Chính sách bảo mật</a> 
@@ -186,10 +186,9 @@ if (isset($_POST['dangki'])) {
                         <button type="submit" class="btn btn-control" name="dangki">Tạo tài khoản</button>
                     </div>
                 </form>
-                <hr>
-                <div class="form-container__social">
+                <!-- <div class="form-container__social">
                     <button class="btn-social"><a href="" class="google-icon"><i class="fa-brands fa-google"></i>Đăng ký bằng Google</a></button>
-                </div>
+                </div> -->
                 <div><p class="form-login">Bạn đã có tài khoản? <a href="">Đăng nhập</a></p></div>
             </div>
         </div>
