@@ -8,10 +8,10 @@
     $error = ''; 
 
     if(isset($_POST['login'])){
-        $user = trim($_POST['email']);
+        $email = trim($_POST['email']);
         $password = trim($_POST['password']);
        
-        if(empty($user) || empty($password)){
+        if(empty($email) || empty($password)){
             $error = '<script>alert("Email và mật khẩu không được để trống!")</script>';
         } else {
             $sql = 'SELECT user FROM nguoidung WHERE email=? AND mat_khau=?';
