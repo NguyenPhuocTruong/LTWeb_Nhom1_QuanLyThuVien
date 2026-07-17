@@ -1,0 +1,59 @@
+/* Chỉ chứa các class đặc thù cho Form Thêm Sách */
+.book-form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="file"],
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-button {
+  margin-top: 20px;
+}
+
+.btn-submit,
+.btn-reset,
+.btn-back {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn-submit {
+  background: #2563eb;
+}
+
+.btn-submit:hover {
+  background: #1d4ed8;
+}
+
+.btn-reset {
+  background: #ef4444;
+}
+
+.btn-reset:hover {
+  background: #dc2626;
+}
