@@ -44,7 +44,7 @@
                     echo "
                         <script>
                             const div = document.getElementById(\"login\");
-                            div.innerHTML = \"<a href=\\\"../userProfile_test.php\\\" style=\\\"font-size: 19px; font-weight: bolder;\\\">Tài khoản</a>\"
+                            div.innerHTML = \"<a href=\\\"./thongtin_user.php\\\" style=\\\"font-size: 19px; font-weight: bolder;\\\">Tài khoản</a>\"
                         </script>
                     ";
                     }

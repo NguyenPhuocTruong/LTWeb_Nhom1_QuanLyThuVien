@@ -10,8 +10,8 @@
     <?php 
         session_unset();
         session_destroy();
-        echo "<h1>Ban da dang xuat<h1>";
-        echo "<a href=\"./user/trangchu.php\"><button>Quay ve trang chu</button></a>";
+        echo "<h1>BẠN ĐÃ ĐĂNG XUẤT...<h1>";
+        echo "<a href=\"./trangchu.php\"><button>Quay về trang chủ</button></a>";
     ?>
 </body>
 </html>

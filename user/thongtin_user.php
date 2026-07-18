@@ -17,10 +17,10 @@
         echo "<h4>Email: $email</h4><br><h4>Ho ten: $name</h4><br><h4>Sach da muon: $so_luong</h4><br>";
         $i = 0;
         foreach ($sach_da_muon as $ma_sach=>$ten_sach){
-            echo "<a href=\"./user/sanpham.php?ma_sach=$ma_sach\">" . $ten_sach . "</a> (Ma sach: " . $ma_sach . ")<br>";
+            echo "<a href=\"./sanpham.php?ma_sach=$ma_sach\">" . $ten_sach . "</a> (Ma sach: " . $ma_sach . ")<br>";
         }
     ?>
-    <a href="./user/trangchu.php"><button>Quay ve trang chu</button></a>
-    <a href="./logOut_test.php"><button>Dang xuat</button></a>
+    <a href="./trangchu.php"><button>Quay ve trang chu</button></a>
+    <a href="./dangxuat.php"><button>Dang xuat</button></a>
 </body>
 </html>

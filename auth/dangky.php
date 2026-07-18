@@ -1,9 +1,6 @@
 <?php
 session_start();
-$conn = new mysqli('localhost', 'root', '', 'library');
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+require_once("../mysqlConnect.php");
 
 $error = '';
 
@@ -26,7 +23,7 @@ if (isset($_POST['dangki'])) {
         $error = '<script>alert("Mật khẩu không trùng khớp")</script>';
     } else {
         $checkSql = 'SELECT email FROM nguoidung WHERE email = ?';
-        $checkStmt = $conn->prepare($checkSql);
+        $checkStmt = $mysqli->prepare($checkSql);
         $checkStmt->bind_param('s', $email);
         $checkStmt->execute();
         $checkResult = $checkStmt->get_result();
@@ -35,14 +32,20 @@ if (isset($_POST['dangki'])) {
         } else {
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-            $sql = 'INSERT INTO nguoidung (email, ho_ten, mat_khau) VALUES (?, ?, ?)';
-            if ($stmt = $conn->prepare($sql)) {
+            $sql = 'INSERT INTO nguoidung (email, hoten, mat_khau) VALUES (?, ?, ?)';
+            if ($stmt = $mysqli->prepare($sql)) {
                 $stmt->bind_param('sss', $email, $hoten, $hashedPassword);
 
                 if ($stmt->execute()) {
+                    // luu thong tin user vao session
+                    $_SESSION['email'] = $email;
+                    $_SESSION['name'] = $hoten;
+                    $_SESSION['sach_da_muon'] = array();
+
+                    // thong bao dang ky thanh cong va chuyen huong den trang chu
                     echo '<script>
                         alert("Đăng ký thành công!");
-                        window.location.href = "dangnhap.php";
+                        window.location.href = "../user/trangchu.php";
                     </script>';
                     exit();
                 } else {
@@ -177,7 +180,7 @@ if (isset($_POST['dangki'])) {
                         <input class="form_input" name="re-enter" value="<?php if(isset($_POST['re-enter'])) echo $_POST['re-enter'];?>" type="password" placeholder="Nhập lại mật khẩu của bạn">
                     </div>
                     <div class="form_policy">
-                        <input class="policy" type="checkbox" name="check"><label class="policy-text">Khi đăng kí, bạn đồng ý với chúng tôi về <a href="" class="policy-a">Điều khoản dịch vụ</a> & <a href="" class="policy-a">Chính sách bảo mật</a> 
+                        <input class="policy" type="checkbox" name="check"><label class="policy-text">Khi đăng kí, bạn đồng ý với chúng tôi về <a href="./policy.php" class="policy-a">Điều khoản dịch vụ</a> & <a href="./policy.php" class="policy-a">Chính sách bảo mật</a> 
                         </label>
                     </div>
                     <?php if(!empty($error)): ?>
@@ -191,6 +194,7 @@ if (isset($_POST['dangki'])) {
                     <button class="btn-social"><a href="" class="google-icon"><i class="fa-brands fa-google"></i>Đăng ký bằng Google</a></button>
                 </div> -->
                 <div><p class="form-login">Bạn đã có tài khoản? <a href="dangnhap.php">Đăng nhập</a></p></div>
+                <div><p class="form-login"><a href="../user/trangchu.php">Quay về trang chủ</a></p></div>
             </div>
         </div>
     </div>
