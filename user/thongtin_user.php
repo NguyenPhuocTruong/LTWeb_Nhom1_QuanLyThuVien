@@ -44,8 +44,6 @@
                         echo "</table><br>";
                     }
                 ?>
-                <!-- <div><p class="form-login">Bạn đã có tài khoản? <a href="dangnhap.php">Đăng nhập</a></p></div>
-                <div><p class="form-login"><a href="../user/trangchu.php">Quay về trang chủ</a></p></div> -->
                 <div class="navi">
                     <a href="./trangchu.php"><button class="navi_btn">Quay Về Trang Chủ</button></a>
                     <button onclick="dangxuat()" class="navi_btn">Đăng Xuất</button>

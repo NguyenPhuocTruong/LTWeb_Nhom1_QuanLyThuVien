@@ -50,39 +50,13 @@
                         echo "<p>Xin lỗi bạn ! Trang đang gặp một số vấn đề:</p>" . $e->getMessage();
                     }
                 ?>
-                <!-- <button id="butt" onclick="muon_sach()">Mượn sách</button> -->
                 <script>
-                    // const butt = document.getElementById("butt");
-                    // butt.addEventListener('click', (e) => {
-                    //     butt.textContent = "Bạn đã mượn sách này";
-                    //     butt.disabled = true;
-                    //     butt.style.backgroundColor = "black";
-
-                    //     // tao nut tra sach
-                    //     const tra_sach_butt = document.createElement("button");
-                    //     tra_sach_butt.textContent = "Trả sách";
-                    //     tra_sach_butt.id = "butt";
-
-                    //     // them nut tra sach vao image_container
-                    //     const div = document.getElementById("image_container");
-                    //     div.appendChild(tra_sach_butt);
-                    // })
                     function muon_sach(){
                         const butt = document.getElementById("butt");
                         butt.textContent = "Chờ chút...";
                         butt.disabled = true;
                         butt.style.backgroundColor = "black";
                         butt.style.cursor = "default";
-
-                        // // tao nut tra sach
-                        // const tra_sach_butt = document.createElement("button");
-                        // tra_sach_butt.textContent = "Trả sách";
-                        // tra_sach_butt.id = "return_butt";
-                        // tra_sach_butt.onclick = tra_sach(); // them chuc nang tra sach cho nut tra sach
-
-                        // them nut tra sach vao image_container
-                        const div = document.getElementById("image_container");
-                        // div.appendChild(tra_sach_butt);
 
                         // lay ma sach va ten sach sau do gui yeu cau cho muonsach.php
                         const ma_sach = document.getElementById("ma_sach").textContent;
@@ -104,9 +78,6 @@
                         // lay ma sach va ten sach
                         const ma_sach = document.getElementById("ma_sach").textContent;
                         const ten_sach = document.getElementById("book_name").textContent;
-
-                        // lay the div class image_container
-                        // const div = document.getElementById("image_container");
 
                         // gui yeu cau toi server bang xmlhttprequest
                         var xhr = new XMLHttpRequest();

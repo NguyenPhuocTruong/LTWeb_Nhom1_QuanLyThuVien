@@ -18,10 +18,7 @@
         if ($success){
             // cap nhat lai so luong sach
             $success = $mysqli->query("UPDATE sach SET so_luong = so_luong + 1 WHERE ma_sach = $ma_sach");
-            if ($success) {
-                // header("Refresh:0; url=sanpham.php"); // tai lai trang de cap nhat front end
-                echo "";
-            }
+            if ($success) echo "";
             else echo "Xảy ra lỗi trong lúc trả sách";
         } else echo "Xảy ra lỗi trong lúc trả sách";
     }
