@@ -21,6 +21,8 @@
                     $row = $result->fetch_assoc();
                     // kiem tra mat khau
                     if (password_verify($password, $row['mat_khau'])){
+                        // kiem tra tai khoan co phai admin hay khong
+
                         // luu thong tin email va ho ten user vao session
                         $_SESSION['email'] = $row['email'];
                         $_SESSION['name'] = $row['hoten'];

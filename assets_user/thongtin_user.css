@@ -1,0 +1,50 @@
+table {
+    width: fit-content;
+    text-align: left;
+    margin: auto;
+}
+
+th, td {
+    border: 1px black solid;
+    width: fit-content;
+    padding: 10px;
+}
+
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+.navi {
+    margin: auto;
+    text-align: center;
+}
+
+.navi_btn{
+    color: #fff;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    width: 40%;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #8860D0;
+    margin-bottom: 10px;
+}
+
+.navi_btn:hover{
+    opacity: 0.8;
+}
+
+.info_form-container__content {
+    width: 600px;
+    min-height: 700px;
+    background-color: #fff;
+    border-radius: 7px;
+    margin: auto;
+    position: relative;
+}
