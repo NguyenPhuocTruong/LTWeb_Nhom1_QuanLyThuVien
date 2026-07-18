@@ -86,7 +86,6 @@
                         <button type="submit" class="btn btn-control" name="login">Đăng nhập</button>
                     </div>
                 </form>
-                <hr>
                 <div><p class="form-login">Bạn chưa có tài khoản? <a href="dangky.php">Đăng kí</a></p></div>
                 <div><p class="form-login"><a href="../user/trangchu.php">Quay về trang chủ</a></p></div>
             </div>
