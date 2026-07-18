@@ -1,17 +1,37 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    background-color: #C1C8E4;
+}
+
+.info-container {
+    margin: 2% auto;
+    display:flex;
+    height: 100%;
+    width: 100%;
+}
+
 table {
-    width: fit-content;
+    min-width: 70%;
     text-align: left;
     margin: auto;
 }
 
 th, td {
-    border: 1px black solid;
+    border: 2px #a0a1a4 solid;
     width: fit-content;
-    padding: 10px;
+    padding: 5px;
+}
+
+th {
+    background-color: #e3e6f2;
 }
 
 a {
-    color: blue;
+    color: #355aff;
     text-decoration: none;
 }
 
@@ -42,7 +62,7 @@ button {
 
 .info_form-container__content {
     width: 600px;
-    min-height: 700px;
+    min-height: fit-content;
     background-color: #fff;
     border-radius: 7px;
     margin: auto;

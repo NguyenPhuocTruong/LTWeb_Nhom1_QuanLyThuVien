@@ -10,8 +10,7 @@
     <script src="https://kit.fontawesome.com/67ecaf9947.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="form-container">
-        <div class="form-container__bg"></div>
+    <div class="info-container">
         <div class="info_form-container__content">
             <div class="form-container__header">
                 <h3>Thông Tin Tài Khoản</h3><br>
@@ -44,17 +43,17 @@
                         echo "</table><br>";
                     }
                 ?>
-                <div class="navi">
-                    <a href="./trangchu.php"><button class="navi_btn">Quay Về Trang Chủ</button></a>
-                    <button onclick="dangxuat()" class="navi_btn">Đăng Xuất</button>
-                    <script>
-                        function dangxuat(){
-                            if (confirm("Bạn Có Chắc Chắn Muốn Đăng Xuất ?")){
-                                window.location.href = "./dangxuat.php";
-                            }
+            </div>
+            <div class="navi">
+                <a href="./trangchu.php"><button class="navi_btn">Quay Về Trang Chủ</button></a>
+                <button onclick="dangxuat()" class="navi_btn">Đăng Xuất</button>
+                <script>
+                    function dangxuat(){
+                        if (confirm("Bạn Có Chắc Chắn Muốn Đăng Xuất ?")){
+                            window.location.href = "./dangxuat.php";
                         }
-                    </script>
-                </div>
+                    }
+                </script>
             </div>
         </div>
     </div>
