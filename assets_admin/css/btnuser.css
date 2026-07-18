@@ -1,0 +1,37 @@
+/* --- THÊM MỚI ĐOẠN NÀY --- */
+.table-actions {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+/* --- THAY THẾ LẠI 2 NÚT CŨ BẰNG ĐOẠN NÀY --- */
+.btn-edit {
+  background: #f59e0b;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  /* Các thuộc tính ép nút giãn đều */
+  flex: 1;
+  text-align: center;
+  text-decoration: none; /* Xóa gạch chân nếu dùng thẻ <a> */
+  display: block;
+}
+
+.btn-delete {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  /* Các thuộc tính ép nút giãn đều */
+  flex: 1;
+  text-align: center;
+  text-decoration: none; /* Xóa gạch chân nếu dùng thẻ <a> */
+  display: block;
+}
