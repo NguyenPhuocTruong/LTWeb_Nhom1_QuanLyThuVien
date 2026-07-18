@@ -36,7 +36,7 @@
                 </div>
                 <div class="login">
                     <i class="fa-solid fa-circle-user" style="font-size: 50px;"></i>
-                    <div id="login"><a href="../logIn_test.php" style="font-size: 19px; font-weight: bolder;">Đăng nhập</a><br><a href="../signUp_test.php" style="font-size: 15px;">Đăng ký</a></div>
+                    <div id="login"><a href="../auth/dangnhap.php" style="font-size: 19px; font-weight: bolder;">Đăng nhập</a><br><a href="../auth/dangky.php" style="font-size: 15px;">Đăng ký</a></div>
                 </div>
                 <?php 
                     // check session
