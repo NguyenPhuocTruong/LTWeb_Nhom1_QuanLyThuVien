@@ -7,7 +7,7 @@
             <div class="search_bar">
                 <form action="./display_books.php" method="post" id="search_form" autocomplete="off">
                     <button class="search_button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    <input onkeyup="showHint(this.value)" type="search" placeholder="Tìm tên sách..." name="bookname" value="<?php if (isset($_POST['bookname'])) echo $_POST['bookname'] ?>">
+                    <input onkeyup="showHint(this.value)" onclick="showHint(this.value)" type="search" placeholder="Tìm tên sách..." name="bookname" value="<?php if (isset($_POST['bookname'])) echo $_POST['bookname'] ?>">
                 </form>
                 <script>
                     function showHint(str){
@@ -26,6 +26,8 @@
                         }
                     }
                 </script>
+
+                <!-- thanh dropdown goi y ket qua tim kiem -->
                 <div class="dropdown_result" id="hint">
                 </div>
             </div>
