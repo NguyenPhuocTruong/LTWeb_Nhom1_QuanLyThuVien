@@ -29,16 +29,16 @@
                                 $image_encode = base64_encode($result['anh_bia']);
                                 echo "<img src=\"data:image/jpg;charset=utf8;base64,$image_encode\" alt=\"image\">";
 
-                                // kiem tra so luong con lai cua sach
-                                if ($result['so_luong'] == 0) echo "<button id=\"inform\" style=\"background-color: darkred\">Sách đã hết</button>";
-                                // kiem tra user da dang nhap chua
-                                else if (!isset($_SESSION['email'])) echo "<button id=\"inform\" style=\"background-color: darkred\">Đăng nhập để mượn sách</button>";
-                                // kiem tra user da muon sach nay chua
-                                else if (array_key_exists($ma_sach, $_SESSION['sach_da_muon'])){
-                                    echo "<button id=\"inform\" style=\"background-color: darkred\">Bạn đã mượn sách này</button>";
-                                    echo "<button id=\"butt\" onclick=\"tra_sach()\">Trả sách</button>";
-                                }
-                                else echo "<button id=\"butt\" onclick=\"muon_sach()\">Mượn sách</button>";
+                                // // kiem tra so luong con lai cua sach
+                                // if ($result['so_luong'] == 0) echo "<button id=\"inform\" style=\"background-color: darkred\">Sách đã hết</button>";
+                                // // kiem tra user da dang nhap chua
+                                // else if (!isset($_SESSION['email'])) echo "<button id=\"inform\" style=\"background-color: darkred\">Đăng nhập để mượn sách</button>";
+                                // // kiem tra user da muon sach nay chua
+                                // else if (array_key_exists($ma_sach, $_SESSION['sach_da_muon'])){
+                                //     echo "<button id=\"inform\" style=\"background-color: darkred\">Bạn đã mượn sách này</button>";
+                                //     echo "<button id=\"butt\" onclick=\"tra_sach()\">Trả sách</button>";
+                                // }
+                                // else echo "<button id=\"butt\" onclick=\"muon_sach()\">Mượn sách</button>";
                             } else {
                                 echo "<p>Lỗi không tải được ảnh:</p>" . $stm->error;
                             }
@@ -96,7 +96,22 @@
         </div>
         <div class="book_info">
             <div class="general_info">
-                <div class="title"><h1 id="book_name"><?php echo $result['ten_sach'] ?></h1><br><br></div>
+                <div class="title">
+                    <h1 id="book_name"><?php echo $result['ten_sach'] ?></h1>
+                    <?php 
+                        // kiem tra so luong con lai cua sach
+                        if ($result['so_luong'] == 0) echo "<button id=\"inform\" style=\"background-color: darkred\">Sách đã hết</button>";
+                        // kiem tra user da dang nhap chua
+                        else if (!isset($_SESSION['email'])) echo "<button id=\"inform\" style=\"background-color: darkred\">Đăng nhập để mượn sách</button>";
+                        // kiem tra user da muon sach nay chua
+                        else if (array_key_exists($ma_sach, $_SESSION['sach_da_muon'])){
+                            echo "<button id=\"inform\" style=\"background-color: darkred\">Bạn đã mượn sách này</button>";
+                            echo "<button id=\"butt\" onclick=\"tra_sach()\">Trả sách</button>";
+                        }
+                        else echo "<button id=\"butt\" onclick=\"muon_sach()\">Mượn sách</button>";
+                    ?>
+                    
+                </div>
                 <div class="info">
                     <div>
                         <p>Nhà cung cấp: <b><?php echo $result['nha_cung_cap'] ?></b></p><br>

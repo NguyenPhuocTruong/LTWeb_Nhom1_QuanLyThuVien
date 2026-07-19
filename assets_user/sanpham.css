@@ -27,10 +27,11 @@ main {
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    max-width: 90%;
-    min-width: 80%;
-    min-height: 500px;
-    max-height: 700px;
+    max-width: 75%;
+    min-width: 65%;
+    /* min-height: 500px;
+    max-height: 700px; */
+    height: fit-content;
     position: sticky;
     top: 150px;
     /* border: 3px green solid; */
@@ -41,13 +42,15 @@ main {
 }
 
 .image_container img {
+    /* border: 3px red solid; */
     margin-top: 20px;
-    height: 85%;
+    margin-bottom: 20px;
+    height: auto;
     width: 90%;
 }
 
-.image_container button {
-    margin: auto;
+.title button {
+    margin: 10px 10px 10px 0;
     height: 40px;
     min-width: 150px;
     width: auto;
@@ -60,15 +63,15 @@ main {
     transition: 0.2s ease;
 }
 
-.image_container button:hover {
+.title button:hover {
     background-color: rgb(82, 136, 82);
 }
 
-.image_container button:active {
+.title button:active {
     transform: scale(0.9);
 }
 
-.image_container button:focus {
+.title button:focus {
     background-color: rgb(50, 50, 50);
 }
 
@@ -95,7 +98,9 @@ main {
 }
 
 .title {
+    /* display: inline-flex; */
     grid-area: title;
+    margin-bottom: 20px;
 }
 
 .info {
