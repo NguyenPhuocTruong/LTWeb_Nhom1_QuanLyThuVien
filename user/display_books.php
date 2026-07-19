@@ -34,6 +34,9 @@
                     $data = trim($data);
                     $data = stripslashes($data);
                     $data = htmlspecialchars($data);
+
+                    // loai bo nhung khoang trang du thua ben trong chuoi
+                    $data = preg_replace('/ +/', ' ', $data);
                     return $data;
                 }
 
