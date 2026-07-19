@@ -13,7 +13,7 @@
     <div class="info-container">
         <div class="info_form-container__content">
             <div class="form-container__header">
-                <h3>Thông Tin Tài Khoản</h3><br>
+                <h3>Thông Tin Tài Khoản</h3><br><br>
             </div>
             <div class="form-container__form">
                 <?php 
@@ -46,7 +46,7 @@
             </div>
             <div class="navi">
                 <a href="./trangchu.php"><button class="navi_btn">Quay Về Trang Chủ</button></a>
-                <button onclick="dangxuat()" class="navi_btn">Đăng Xuất</button>
+                <button onclick="dangxuat()" class="navi_btn" style="background-color: brown;">Đăng Xuất</button>
                 <script>
                     function dangxuat(){
                         if (confirm("Bạn Có Chắc Chắn Muốn Đăng Xuất ?")){
