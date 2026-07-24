@@ -7,8 +7,6 @@
   padding: 20px;
   border-radius: 8px;
 }
-
-/* Fix lỗi bị header.css đè class .logo */
 .sidebar .admin-logo {
   font-size: 24px;
   font-weight: bold;

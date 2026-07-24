@@ -2,11 +2,9 @@
 require_once("../mysqlConnect.php");
 $conn->select_db("library");
 
-// Nhận biến 'id' từ URL (thực chất giá trị bên trong là email)
 if (isset($_GET['id'])) {
     $email = $_GET['id'];
 
-    // Câu lệnh SQL tìm và xóa theo email
     $sql = "DELETE FROM nguoidung WHERE email = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $email); // 's' vì email là chuỗi (string)
@@ -23,6 +21,5 @@ if (isset($_GET['id'])) {
               </script>";
     }
 } else {
-    // Không có dữ liệu thì tự quay về trang người dùng
     header("Location: users.php");
 }

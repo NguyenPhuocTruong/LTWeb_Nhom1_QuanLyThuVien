@@ -1,8 +1,6 @@
 <?php
 require_once("../mysqlConnect.php");
 $conn->select_db("library");
-
-// 1. LẤY THÔNG TIN CŨ ĐỂ HIỂN THỊ LÊN FORM
 if (isset($_GET['id'])) {
     $email_hien_tai = $_GET['id']; // Lấy email từ URL
 
@@ -21,22 +19,18 @@ if (isset($_GET['id'])) {
     header("Location: users.php");
     exit;
 }
-
-// 2. XỬ LÝ LƯU THAY ĐỔI
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $old_email = $_POST['old_email']; // Cần email cũ để tìm đúng dòng trong CSDL
+    $old_email = $_POST['old_email'];
     $hoten = $_POST['hoten'];
     $new_email = $_POST['email'];
     $mat_khau_moi = $_POST['mat_khau'];
 
     if (!empty($mat_khau_moi)) {
-        // Có nhập pass mới -> Băm mật khẩu và cập nhật tất cả
         $mat_khau_bam = password_hash($mat_khau_moi, PASSWORD_DEFAULT);
         $sql_update = "UPDATE nguoidung SET hoten = ?, email = ?, mat_khau = ? WHERE email = ?";
         $stmt_update = $conn->prepare($sql_update);
         $stmt_update->bind_param("ssss", $hoten, $new_email, $mat_khau_bam, $old_email);
     } else {
-        // Bỏ trống pass mới -> Chỉ cập nhật Tên và Email
         $sql_update = "UPDATE nguoidung SET hoten = ?, email = ? WHERE email = ?";
         $stmt_update = $conn->prepare($sql_update);
         $stmt_update->bind_param("sss", $hoten, $new_email, $old_email);
@@ -60,7 +54,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sửa người dùng</title>
-    <!-- Giữ nguyên các CSS theo file users.php của bạn -->
     <link rel="stylesheet" href="../index.css">
     <link rel="stylesheet" href="../assets_admin/css/sidebar.css">
     <link rel="stylesheet" href="../assets_admin/css/books.css">
@@ -79,11 +72,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <h2>Chỉnh sửa người dùng</h2>
                 </div>
 
-                <!-- Bọc form trong div giống giao diện bảng cho đồng bộ -->
                 <div class="books-table-box" style="display: flex; justify-content: center;">
                     <div class="form-container">
                         <form method="POST" action="">
-                            <!-- Lưu ngầm email cũ để hệ thống biết đang sửa ai -->
                             <input type="hidden" name="old_email"
                                 value="<?php echo htmlspecialchars($user['email']); ?>">
 
