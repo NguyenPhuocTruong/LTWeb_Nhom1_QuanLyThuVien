@@ -19,7 +19,6 @@ $list_books = $conn->query("SELECT * FROM sach ORDER BY ma_sach DESC LIMIT 5");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Admin</title>
-
     <link rel="stylesheet" href="../index.css">
     <link rel="stylesheet" href="../assets_admin/css/sidebar.css">
     <link rel="stylesheet" href="../assets_admin/css/dashboard.css">
@@ -27,9 +26,6 @@ $list_books = $conn->query("SELECT * FROM sach ORDER BY ma_sach DESC LIMIT 5");
 </head>
 
 <body class="admin-body">
-
-    <?php include '../header.php'; ?>
-
     <section class="dashboard-page">
         <div class="admin-layout">
 
@@ -146,8 +142,6 @@ $list_books = $conn->query("SELECT * FROM sach ORDER BY ma_sach DESC LIMIT 5");
 
         </div>
     </section>
-
-    <?php include '../footer.php'; ?>
 
 </body>
 

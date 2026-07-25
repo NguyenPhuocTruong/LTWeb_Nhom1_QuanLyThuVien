@@ -12,7 +12,6 @@
 </head>
 
 <body class="admin-body">
-    <?php include "../header.php"; ?>
     <div class="books-page">
         <div class="admin-layout">
             <?php include "sidebar.php"; ?>
@@ -24,10 +23,11 @@
                     <table class="books-table">
                         <thead>
                             <tr>
+                                <th>Thao tác</th>
                                 <th>STT</th>
                                 <th>Tên người dùng</th>
                                 <th>Email</th>
-                                <th>Thao tác</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -38,16 +38,22 @@
                             $stt = 1;
                             while ($row = $result->fetch_assoc()) {
                             ?>
-                            <tr>
-                                <td><?php echo $stt++; ?></td>
-                                <td><?php echo htmlspecialchars($row['hoten']); ?></td>
-                                <td><?php echo htmlspecialchars($row['email']); ?></td>
-                                <td class="table-actions">
-                                    <a href="editUser.php?id=<?php echo $row['email']; ?>" class="btn-edit">Sửa</a>
-                                    <a href="deleteUser.php?id=<?php echo $row['email']; ?>" class="btn-delete"
-                                        onclick="return confirm('Bạn có chắc muốn xóa?');">Xóa</a>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>
+                                        <div class="table-actions">
+                                            <a href="editUser.php?id=<?php echo $row['email']; ?>" class="btn-edit">Sửa</a>
+
+                                            <a href="deleteUser.php?id=<?php echo $row['email']; ?>" class="btn-delete"
+                                                onclick="return confirm('Bạn có chắc muốn xóa?');">
+                                                Xóa
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td><?php echo $stt++; ?></td>
+                                    <td><?php echo htmlspecialchars($row['hoten']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['email']); ?></td>
+
+                                </tr>
                             <?php } ?>
                         </tbody>
                     </table>
@@ -55,7 +61,6 @@
             </main>
         </div>
     </div>
-    <?php include "../footer.php"; ?>
 </body>
 
 </html>

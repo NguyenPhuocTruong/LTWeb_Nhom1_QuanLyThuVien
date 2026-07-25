@@ -27,3 +27,54 @@
   background: #1d4ed8;
   color: white;
 }
+@media (max-width: 992px) {
+  .sidebar {
+    width: 200px;
+    flex: 0 0 200px;
+    padding: 18px;
+  }
+
+  .sidebar .admin-logo {
+    font-size: 22px;
+  }
+
+  .sidebar a {
+    font-size: 15px;
+    padding: 10px;
+  }
+}
+
+/* =========================
+   Mobile (≤768px)
+========================= */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+    border-radius: 0;
+    padding: 15px;
+  }
+
+  .sidebar .admin-logo {
+    margin-bottom: 15px;
+  }
+
+  .sidebar a {
+    margin-bottom: 6px;
+    text-align: center;
+  }
+}
+@media (max-width: 480px) {
+  .sidebar {
+    padding: 12px;
+  }
+
+  .sidebar .admin-logo {
+    font-size: 20px;
+  }
+
+  .sidebar a {
+    font-size: 14px;
+    padding: 10px;
+  }
+}

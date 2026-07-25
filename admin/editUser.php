@@ -54,7 +54,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sửa người dùng</title>
-    <link rel="stylesheet" href="../index.css">
     <link rel="stylesheet" href="../assets_admin/css/sidebar.css">
     <link rel="stylesheet" href="../assets_admin/css/books.css">
     <link rel="stylesheet" href="../assets_admin/css/btnuser.css">
@@ -63,7 +62,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body class="admin-body">
-    <?php include "../header.php"; ?>
     <div class="books-page">
         <div class="admin-layout">
             <?php include "sidebar.php"; ?>
@@ -104,7 +102,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </main>
         </div>
     </div>
-    <?php include "../footer.php"; ?>
 </body>
 
 </html>

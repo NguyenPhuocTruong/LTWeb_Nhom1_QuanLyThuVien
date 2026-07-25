@@ -13,8 +13,6 @@
 </head>
 
 <body class="admin-body">
-
-    <?php include "../header.php"; ?>
     <?php include "../mysqlConnect.php"; ?>
     <div class="books-page">
 
@@ -33,6 +31,7 @@
                     <table class="books-table">
                         <thead>
                             <tr>
+                                <th>Thao tác</th>
                                 <th>Mã sách</th>
                                 <th>Tên sách</th>
                                 <th>Tác giả</th>
@@ -42,7 +41,7 @@
                                 <th>Nhà cung cấp</th>
                                 <th>Số lượng</th>
                                 <th>Năm XB</th>
-                                <th>Thao tác</th>
+
                             </tr>
                         </thead>
 
@@ -58,40 +57,40 @@
 
                             ?>
 
-                            <tr>
+                                <tr>
+                                    <td>
 
-                                <td><?php echo $stt++; ?></td>
+                                        <button class="btn-edit"><a href="addBooks.php?id=<?php echo $row['ma_sach']; ?>"
+                                                class="btn-edit"
+                                                style="text-decoration: none; display: inline-block;">Sửa</a></button>
 
-                                <td><?php echo $row['ten_sach']; ?></td>
+                                        <button class="btn-delete"><a
+                                                href="deleteBooks.php?id=<?php echo $row['ma_sach']; ?>" class="btn-delete"
+                                                style="text-decoration: none; display: inline-block;"
+                                                onclick="return confirm('Bạn có chắc chắn muốn xóa cuốn sách này không?');">Xóa</a></button>
 
-                                <td><?php echo $row['tac_gia']; ?></td>
+                                    </td>
+                                    <td><?php echo $stt++; ?></td>
 
-                                <td><?php echo $row['nha_xb']; ?></td>
+                                    <td><?php echo $row['ten_sach']; ?></td>
 
-                                <td><?php echo $row['the_loai']; ?></td>
+                                    <td><?php echo $row['tac_gia']; ?></td>
 
-                                <td><?php echo $row['quoc_gia']; ?></td>
+                                    <td><?php echo $row['nha_xb']; ?></td>
 
-                                <td><?php echo $row['nha_cung_cap']; ?></td>
+                                    <td><?php echo $row['the_loai']; ?></td>
 
-                                <td><?php echo $row['so_luong']; ?></td>
+                                    <td><?php echo $row['quoc_gia']; ?></td>
 
-                                <td><?php echo $row['nam_xb']; ?></td>
+                                    <td><?php echo $row['nha_cung_cap']; ?></td>
 
-                                <td>
+                                    <td><?php echo $row['so_luong']; ?></td>
 
-                                    <button class="btn-edit"><a href="addBooks.php?id=<?php echo $row['ma_sach']; ?>"
-                                            class="btn-edit"
-                                            style="text-decoration: none; display: inline-block;">Sửa</a></button>
+                                    <td><?php echo $row['nam_xb']; ?></td>
 
-                                    <button class="btn-delete"><a
-                                            href="deleteBooks.php?id=<?php echo $row['ma_sach']; ?>" class="btn-delete"
-                                            style="text-decoration: none; display: inline-block;"
-                                            onclick="return confirm('Bạn có chắc chắn muốn xóa cuốn sách này không?');">Xóa</a></button>
 
-                                </td>
 
-                            </tr>
+                                </tr>
 
                             <?php
                             }
@@ -106,8 +105,6 @@
         </div>
 
     </div>
-
-    <?php include "../footer.php"; ?>
 
 </body>
 

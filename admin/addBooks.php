@@ -78,9 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Đổi Title linh hoạt -->
     <title><?php echo $isEditMode ? "Sửa thông tin sách" : "Thêm sách mới"; ?></title>
-
     <link rel="stylesheet" href="../index.css">
     <link rel="stylesheet" href="../assets_admin/css/sidebar.css">
     <link rel="stylesheet" href="../assets_admin/css/books.css">
@@ -88,8 +86,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body class="admin-body">
-
-    <?php include "../header.php"; ?>
 
     <div class="books-page">
         <div class="admin-layout">
@@ -190,9 +186,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
     </div>
-
-    <?php include "../footer.php"; ?>
-
     <script>
         if (window.history.replaceState)
             window.history.replaceState(null, null, window.location.href);

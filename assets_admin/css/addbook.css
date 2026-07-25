@@ -56,3 +56,68 @@
 .btn-reset:hover {
   background: #dc2626;
 }
+@media (max-width: 992px) {
+  .form-group input[type="text"],
+  .form-group input[type="number"],
+  .form-group input[type="file"],
+  .form-group textarea {
+    font-size: 14px;
+    padding: 9px;
+  }
+}
+/* ========== Mobile ========== */
+@media (max-width: 768px) {
+  .book-form {
+    width: 100%;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-group label {
+    font-size: 15px;
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="number"],
+  .form-group input[type="file"],
+  .form-group textarea {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .form-button {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn-submit,
+  .btn-reset,
+  .btn-back {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+  }
+}
+@media (max-width: 480px) {
+  .form-group label {
+    font-size: 14px;
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="number"],
+  .form-group input[type="file"],
+  .form-group textarea {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .btn-submit,
+  .btn-reset,
+  .btn-back {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
