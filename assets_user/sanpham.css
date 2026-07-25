@@ -71,9 +71,9 @@ main {
     transform: scale(0.9);
 }
 
-.title button:focus {
+/* .title button:focus {
     background-color: rgb(50, 50, 50);
-}
+} */
 
 .book_info {
     grid-area: book_info;

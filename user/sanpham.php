@@ -52,15 +52,17 @@
                 ?>
                 <script>
                     function muon_sach(){
+                        // lay ma sach va ten sach sau do gui yeu cau cho muonsach.php
+                        const ma_sach = document.getElementById("ma_sach").textContent;
+                        const ten_sach = document.getElementById("book_name").textContent;
+
+                        // xac nhan muon sach
+                        if (!confirm("Bạn có chắc chắn muốn mượn sách " + ten_sach + " ?")) return;
                         const butt = document.getElementById("butt");
                         butt.textContent = "Chờ chút...";
                         butt.disabled = true;
                         butt.style.backgroundColor = "black";
                         butt.style.cursor = "default";
-
-                        // lay ma sach va ten sach sau do gui yeu cau cho muonsach.php
-                        const ma_sach = document.getElementById("ma_sach").textContent;
-                        const ten_sach = document.getElementById("book_name").textContent;
 
                         var xhr = new XMLHttpRequest();
                         xhr.onreadystatechange = function(){
@@ -78,6 +80,9 @@
                         // lay ma sach va ten sach
                         const ma_sach = document.getElementById("ma_sach").textContent;
                         const ten_sach = document.getElementById("book_name").textContent;
+
+                        // xac nhan tra sach
+                        if (!confirm("Bạn có chắc chắn muốn trả sách " + ten_sach + " ?")) return;
 
                         // gui yeu cau toi server bang xmlhttprequest
                         var xhr = new XMLHttpRequest();
