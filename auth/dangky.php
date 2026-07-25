@@ -15,6 +15,8 @@ if (isset($_POST['dangki'])) {
         $error = '<script>alert("Vui lòng điền đầy đủ thông tin!")</script>';
     } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $error = '<script>alert("Email không hợp lệ!")</script>';
+    } else if (!preg_match("/^[a-zA-ZÀ-ỹ\s]+$/", $hoten)){
+        $error = '<script>alert("Họ tên chỉ được chứa chữ cái và khoảng trắng!")</script>';
     } else if (strlen($password) < 8) {
         $error = '<script>alert("Mật khẩu phải có ít nhất 8 ký tự!")</script>';
     } else if (!$agree) {
