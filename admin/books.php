@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="../assets_admin/css/sidebar.css">
     <link rel="stylesheet" href="../assets_admin/css/books.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <script src="https://kit.fontawesome.com/67ecaf9947.js" crossorigin="anonymous"></script>
 </head>
 

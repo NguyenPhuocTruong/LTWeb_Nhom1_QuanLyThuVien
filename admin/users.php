@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../assets_admin/css/sidebar.css">
     <link rel="stylesheet" href="../assets_admin/css/books.css">
     <link rel="stylesheet" href="../assets_admin/css/btnuser.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
 <body class="admin-body">
@@ -38,22 +39,22 @@
                             $stt = 1;
                             while ($row = $result->fetch_assoc()) {
                             ?>
-                                <tr>
-                                    <td>
-                                        <div class="table-actions">
-                                            <a href="editUser.php?id=<?php echo $row['email']; ?>" class="btn-edit">Sửa</a>
+                            <tr>
+                                <td>
+                                    <div class="table-actions">
+                                        <a href="editUser.php?id=<?php echo $row['email']; ?>" class="btn-edit">Sửa</a>
 
-                                            <a href="deleteUser.php?id=<?php echo $row['email']; ?>" class="btn-delete"
-                                                onclick="return confirm('Bạn có chắc muốn xóa?');">
-                                                Xóa
-                                            </a>
-                                        </div>
-                                    </td>
-                                    <td><?php echo $stt++; ?></td>
-                                    <td><?php echo htmlspecialchars($row['hoten']); ?></td>
-                                    <td><?php echo htmlspecialchars($row['email']); ?></td>
+                                        <a href="deleteUser.php?id=<?php echo $row['email']; ?>" class="btn-delete"
+                                            onclick="return confirm('Bạn có chắc muốn xóa?');">
+                                            Xóa
+                                        </a>
+                                    </div>
+                                </td>
+                                <td><?php echo $stt++; ?></td>
+                                <td><?php echo htmlspecialchars($row['hoten']); ?></td>
+                                <td><?php echo htmlspecialchars($row['email']); ?></td>
 
-                                </tr>
+                            </tr>
                             <?php } ?>
                         </tbody>
                     </table>
