@@ -22,6 +22,7 @@
                     $sach_da_muon = $_SESSION['sach_da_muon'];
                     $so_luong = count($sach_da_muon);
                     echo "<h4>Email: $email</h4><h4>Họ Tên: $name</h4><h4>Sách Đã Mượn: $so_luong</h4><br>";
+                    echo "<a href=\"./capnhat_thongtin_user_fe.php\"><button class=\"navi_btn\">Cập Nhật Thông Tin</button></a>";
                     if ($so_luong > 0){
                         $i = 0;
                         echo "

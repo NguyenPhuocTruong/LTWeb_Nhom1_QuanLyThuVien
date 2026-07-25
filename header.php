@@ -28,8 +28,7 @@
                 </script>
 
                 <!-- thanh dropdown goi y ket qua tim kiem -->
-                <div class="dropdown_result" id="hint">
-                </div>
+                <div class="dropdown_result" id="hint"></div>
             </div>
             <div class="login_container">
                 <div class="login">
