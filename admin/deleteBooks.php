@@ -9,7 +9,7 @@ if (isset($_GET['id'])) {
         header("Location: books.php?msg=delete_success");
         exit();
     } else {
-        echo "Loi khi xoa" + $conn->error;
+        echo "Loi khi xoa" . $conn->error;
     }
     $stm->close();
 } else {

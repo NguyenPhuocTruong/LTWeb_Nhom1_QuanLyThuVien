@@ -111,11 +111,10 @@ $list_books = $conn->query("SELECT * FROM sach ORDER BY ma_sach DESC LIMIT 5");
                             <tbody>
                                 <?php
                                 if ($list_books && $list_books->num_rows > 0) {
-                                    $stt = 1;
                                     while ($book = $list_books->fetch_assoc()) {
                                 ?>
                                         <tr>
-                                            <td><?php echo $stt++; ?></td>
+                                            <td><?php echo htmlspecialchars($book['ma_sach']); ?></td>
                                             <td><?php echo htmlspecialchars($book['ten_sach']); ?></td>
                                             <td><?php echo htmlspecialchars($book['tac_gia']); ?></td>
                                             <td>
