@@ -1,11 +1,11 @@
 <?php
 require_once("../mysqlConnect.php");
-$conn->select_db("library");
+$mysqli->select_db("library");
 if (isset($_GET['id'])) {
     $email_hien_tai = $_GET['id']; // Lấy email từ URL
 
     $sql = "SELECT * FROM nguoidung WHERE email = ?";
-    $stmt = $conn->prepare($sql);
+    $stmt = $mysqli->prepare($sql);
     $stmt->bind_param("s", $email_hien_tai);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -28,11 +28,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($mat_khau_moi)) {
         $mat_khau_bam = password_hash($mat_khau_moi, PASSWORD_DEFAULT);
         $sql_update = "UPDATE nguoidung SET hoten = ?, email = ?, mat_khau = ? WHERE email = ?";
-        $stmt_update = $conn->prepare($sql_update);
+        $stmt_update = $mysqli->prepare($sql_update);
         $stmt_update->bind_param("ssss", $hoten, $new_email, $mat_khau_bam, $old_email);
     } else {
         $sql_update = "UPDATE nguoidung SET hoten = ?, email = ? WHERE email = ?";
-        $stmt_update = $conn->prepare($sql_update);
+        $stmt_update = $mysqli->prepare($sql_update);
         $stmt_update->bind_param("sss", $hoten, $new_email, $old_email);
     }
 
@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 window.location.href = 'users.php';
               </script>";
     } else {
-        echo "<script>alert('Lỗi cập nhật: " . $conn->error . "');</script>";
+        echo "<script>alert('Lỗi cập nhật: " . $mysqli->error . "');</script>";
     }
 }
 ?>

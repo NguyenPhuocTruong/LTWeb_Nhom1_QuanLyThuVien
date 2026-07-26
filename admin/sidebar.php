@@ -24,7 +24,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
         <span>Quản lý người dùng</span>
     </a>
 
-    <a href="logout.php">
+    <a href="../user/trangchu.php" onclick="return confirm('Bạn có chắc chắn muốn đăng xuất ?')">
         <i class="fa-solid fa-right-from-bracket"></i>
         <span>Đăng xuất</span>
     </a>

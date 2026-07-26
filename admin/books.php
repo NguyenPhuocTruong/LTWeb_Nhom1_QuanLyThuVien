@@ -51,7 +51,7 @@
 
                             $sql = "SELECT * FROM sach";
 
-                            $result = mysqli_query($conn, $sql);
+                            $result = mysqli_query($mysqli, $sql);
                             while ($row = mysqli_fetch_assoc($result)) {
 
                             ?>
@@ -66,7 +66,7 @@
                                         <button class="btn-delete"><a
                                                 href="deleteBooks.php?id=<?php echo $row['ma_sach']; ?>" class="btn-delete"
                                                 style="text-decoration: none; display: inline-block;"
-                                                onclick="return confirm('Bạn có chắc chắn muốn xóa sách <?php echo $row['ten_sach']; ?> (Mã sách: <?php echo $row['ma_sach']; ?>) không?');">Xóa</a></button>
+                                                onclick="return confirm('Bạn có chắc chắn muốn xóa sách <?php echo $row['ten_sach']; ?> (Mã sách: <?php echo $row['ma_sach']; ?>) ?');">Xóa</a></button>
 
                                     </td>
                                     <td><?php echo $row['ma_sach']; ?></td>

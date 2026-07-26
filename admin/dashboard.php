@@ -1,15 +1,15 @@
 <?php
 require_once("../mysqlConnect.php");
-$conn->select_db("library");
+$mysqli->select_db("library");
 $sql_sach = "SELECT COUNT(*) as total FROM sach";
-$result_sach = $conn->query($sql_sach);
+$result_sach = $mysqli->query($sql_sach);
 $total_sach = $result_sach ? $result_sach->fetch_assoc()['total'] : 0;
 $sql_user = "SELECT COUNT(*) as total FROM nguoidung";
-$result_user = $conn->query($sql_user);
+$result_user = $mysqli->query($sql_user);
 $total_user = $result_user ? $result_user->fetch_assoc()['total'] : 0;
 
-$list_users = $conn->query("SELECT * FROM nguoidung LIMIT 5");
-$list_books = $conn->query("SELECT * FROM sach ORDER BY ma_sach DESC LIMIT 5");
+$list_users = $mysqli->query("SELECT * FROM nguoidung LIMIT 5");
+$list_books = $mysqli->query("SELECT * FROM sach ORDER BY ma_sach DESC LIMIT 5");
 ?>
 
 <!DOCTYPE html>

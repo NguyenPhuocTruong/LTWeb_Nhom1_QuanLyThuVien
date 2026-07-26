@@ -1,2 +1,4 @@
 <?php
-$conn = new mysqli("localhost", "root", "", "library");
+    $mysqli = new mysqli("localhost", "root", "", "library");
+    if ($mysqli->connect_error) die("Connection failed: " . $mysqli->connect_error);
+?>

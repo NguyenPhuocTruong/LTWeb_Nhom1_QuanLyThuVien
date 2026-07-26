@@ -1,12 +1,12 @@
 <?php
 require_once("../mysqlConnect.php");
-$conn->select_db("library");
+$mysqli->select_db("library");
 
 if (isset($_GET['id'])) {
     $email = $_GET['id'];
 
     $sql = "DELETE FROM nguoidung WHERE email = ?";
-    $stmt = $conn->prepare($sql);
+    $stmt = $mysqli->prepare($sql);
     $stmt->bind_param("s", $email); // 's' vì email là chuỗi (string)
 
     if ($stmt->execute()) {
@@ -16,7 +16,7 @@ if (isset($_GET['id'])) {
               </script>";
     } else {
         echo "<script>
-                alert('Có lỗi xảy ra: " . $conn->error . "');
+                alert('Có lỗi xảy ra: " . $mysqli->error . "');
                 window.location.href = 'users.php';
               </script>";
     }

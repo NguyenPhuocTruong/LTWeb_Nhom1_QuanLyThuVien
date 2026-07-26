@@ -1,6 +1,6 @@
 <?php
 require_once("../mysqlConnect.php");
-$conn->select_db("library");
+$mysqli->select_db("library");
 
 $isEditMode = false;
 $bookData = [];
@@ -9,7 +9,7 @@ $message = "";
 if (isset($_GET['id']) && !empty($_GET['id'])) {
     $isEditMode = true;
     $ma_sach_edit = $_GET['id'];
-    $result = $conn->query("SELECT * FROM sach WHERE ma_sach = '$ma_sach_edit'");
+    $result = $mysqli->query("SELECT * FROM sach WHERE ma_sach = '$ma_sach_edit'");
     if ($result && $result->num_rows > 0) {
         $bookData = $result->fetch_assoc();
     } else {
@@ -33,16 +33,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (isset($_FILES['anh_bia']) && $_FILES['anh_bia']['error'] === UPLOAD_ERR_OK) {
             $image_data = file_get_contents($_FILES['anh_bia']['tmp_name']);
-            $stm = $conn->prepare("UPDATE sach SET ten_sach=?, tac_gia=?, nam_xb=?, nha_xb=?, nha_cung_cap=?, the_loai=?, quoc_gia=?, so_luong=?, mo_ta=?, anh_bia=? WHERE ma_sach=?");
+            $stm = $mysqli->prepare("UPDATE sach SET ten_sach=?, tac_gia=?, nam_xb=?, nha_xb=?, nha_cung_cap=?, the_loai=?, quoc_gia=?, so_luong=?, mo_ta=?, anh_bia=? WHERE ma_sach=?");
             $stm->bind_param("ssissssissi", $ten_sach, $tac_gia, $nam_xb, $nha_xb, $nha_cung_cap, $the_loai, $quoc_gia, $so_luong, $mo_ta, $image_data, $ma_sach_update);
         } else {
-            $stm = $conn->prepare("UPDATE sach SET ten_sach=?, tac_gia=?, nam_xb=?, nha_xb=?, nha_cung_cap=?, the_loai=?, quoc_gia=?, so_luong=?, mo_ta=? WHERE ma_sach=?");
+            $stm = $mysqli->prepare("UPDATE sach SET ten_sach=?, tac_gia=?, nam_xb=?, nha_xb=?, nha_cung_cap=?, the_loai=?, quoc_gia=?, so_luong=?, mo_ta=? WHERE ma_sach=?");
             $stm->bind_param("ssissssisi", $ten_sach, $tac_gia, $nam_xb, $nha_xb, $nha_cung_cap, $the_loai, $quoc_gia, $so_luong, $mo_ta, $ma_sach_update);
         }
 
         if ($stm->execute()) {
             $message = "<p style='color: green; font-weight: bold; margin-bottom: 20px;'>Cập nhật sách thành công!</p>";
-            $result = $conn->query("SELECT * FROM sach WHERE ma_sach = '$ma_sach_update'");
+            $result = $mysqli->query("SELECT * FROM sach WHERE ma_sach = '$ma_sach_update'");
             $bookData = $result->fetch_assoc();
         } else {
             $message = "<p style='color: red;'>Lỗi khi cập nhật: " . $stm->error . "</p>";
@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         if (isset($_FILES['anh_bia']) && $_FILES['anh_bia']['error'] === UPLOAD_ERR_OK) {
             $image_data = file_get_contents($_FILES['anh_bia']['tmp_name']);
-            $stm = $conn->prepare("INSERT INTO sach (ten_sach, tac_gia, nam_xb, nha_xb, nha_cung_cap, the_loai, quoc_gia, so_luong, mo_ta, anh_bia) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stm = $mysqli->prepare("INSERT INTO sach (ten_sach, tac_gia, nam_xb, nha_xb, nha_cung_cap, the_loai, quoc_gia, so_luong, mo_ta, anh_bia) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             $stm->bind_param("ssissssiss", $ten_sach, $tac_gia, $nam_xb, $nha_xb, $nha_cung_cap, $the_loai, $quoc_gia, $so_luong, $mo_ta, $image_data);
 
             if ($stm->execute()) {
@@ -64,9 +64,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $message = "<p style='color: red;'>Vui lòng chọn ảnh bìa hợp lệ!</p>";
         }
     }
-    $check_tl = $conn->query("SELECT * FROM theloai WHERE ten_the_loai = '$the_loai'");
+    $check_tl = $mysqli->query("SELECT * FROM theloai WHERE ten_the_loai = '$the_loai'");
     if ($check_tl && $check_tl->num_rows == 0) {
-        $stm_tl = $conn->prepare("INSERT INTO theloai (ten_the_loai) VALUES (?)");
+        $stm_tl = $mysqli->prepare("INSERT INTO theloai (ten_the_loai) VALUES (?)");
         $stm_tl->bind_param("s", $the_loai);
         $stm_tl->execute();
     }

@@ -28,14 +28,13 @@
                                 <th>STT</th>
                                 <th>Tên người dùng</th>
                                 <th>Email</th>
-
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             require_once("../mysqlConnect.php");
-                            $conn->select_db("library");
-                            $result = $conn->query("SELECT * FROM nguoidung");
+                            $mysqli->select_db("library");
+                            $result = $mysqli->query("SELECT * FROM nguoidung");
                             $stt = 1;
                             while ($row = $result->fetch_assoc()) {
                             ?>
@@ -45,7 +44,7 @@
                                         <a href="editUser.php?id=<?php echo $row['email']; ?>" class="btn-edit">Sửa</a>
 
                                         <a href="deleteUser.php?id=<?php echo $row['email']; ?>" class="btn-delete"
-                                            onclick="return confirm('Bạn có chắc muốn xóa?');">
+                                            onclick="return confirm('Bạn có chắc muốn xóa người dùng <?php echo htmlspecialchars($row['hoten']); ?> (email: <?php echo htmlspecialchars($row['email']); ?>) ?');">
                                             Xóa
                                         </a>
                                     </div>
@@ -53,7 +52,6 @@
                                 <td><?php echo $stt++; ?></td>
                                 <td><?php echo htmlspecialchars($row['hoten']); ?></td>
                                 <td><?php echo htmlspecialchars($row['email']); ?></td>
-
                             </tr>
                             <?php } ?>
                         </tbody>
