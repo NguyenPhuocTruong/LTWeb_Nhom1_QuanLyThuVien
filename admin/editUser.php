@@ -2,7 +2,7 @@
 require_once("../mysqlConnect.php");
 $mysqli->select_db("library");
 if (isset($_GET['id'])) {
-    $email_hien_tai = $_GET['id']; // Lấy email từ URL
+    $email_hien_tai = $_GET['id'];
 
     $sql = "SELECT * FROM nguoidung WHERE email = ?";
     $stmt = $mysqli->prepare($sql);

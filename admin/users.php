@@ -28,6 +28,7 @@
                                 <th>STT</th>
                                 <th>Tên người dùng</th>
                                 <th>Email</th>
+                                <th>Số sách đã mượn</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -36,23 +37,46 @@
                             $mysqli->select_db("library");
                             $result = $mysqli->query("SELECT * FROM nguoidung");
                             $stt = 1;
-                            while ($row = $result->fetch_assoc()) {
-                            ?>
-                            <tr>
-                                <td>
-                                    <div class="table-actions">
-                                        <a href="editUser.php?id=<?php echo $row['email']; ?>" class="btn-edit">Sửa</a>
 
-                                        <a href="deleteUser.php?id=<?php echo $row['email']; ?>" class="btn-delete"
-                                            onclick="return confirm('Bạn có chắc muốn xóa người dùng <?php echo htmlspecialchars($row['hoten']); ?> (email: <?php echo htmlspecialchars($row['email']); ?>) ?');">
-                                            Xóa
-                                        </a>
-                                    </div>
-                                </td>
-                                <td><?php echo $stt++; ?></td>
-                                <td><?php echo htmlspecialchars($row['hoten']); ?></td>
-                                <td><?php echo htmlspecialchars($row['email']); ?></td>
-                            </tr>
+                            while ($row = $result->fetch_assoc()) {
+                                $email = $row['email'];
+
+                                $countQuery = $mysqli->query("SELECT COUNT(*) as total FROM muon_sach WHERE email = '$email'");
+                                $soSachMuon = 0;
+                                if ($countQuery) {
+                                    $countRow = $countQuery->fetch_assoc();
+                                    $soSachMuon = $countRow['total'];
+                                }
+                            ?>
+                                <tr>
+                                    <td>
+                                        <div class="table-actions">
+                                            <a href="editUser.php?id=<?php echo $row['email']; ?>" class="btn-edit">Sửa</a>
+
+                                            <a href="deleteUser.php?id=<?php echo $row['email']; ?>" class="btn-delete"
+                                                onclick="return confirm('Bạn có chắc muốn xóa người dùng <?php echo htmlspecialchars($row['hoten']); ?> (email: <?php echo htmlspecialchars($row['email']); ?>) ?');">
+                                                Xóa
+                                            </a>
+                                        </div>
+                                    </td>
+                                    <td style="text-align: center; vertical-align: middle;">
+                                        <span class="stt-highlight"><?php echo $stt++; ?></span>
+                                    </td>
+                                    <td><?php echo htmlspecialchars($row['hoten']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['email']); ?></td>
+                                    <td style="text-align: center;">
+                                        <?php if ($soSachMuon > 0) { ?>
+                                            <a href="detailBorrow.php?email=<?php echo urlencode($email); ?>&hoten=<?php echo urlencode($row['hoten']); ?>"
+                                                class="btn-count-active">
+                                                <?php echo $soSachMuon; ?>
+                                            </a>
+                                        <?php } else { ?>
+                                            <span class="btn-count-empty">
+                                                0
+                                            </span>
+                                        <?php } ?>
+                                    </td>
+                                </tr>
                             <?php } ?>
                         </tbody>
                     </table>

@@ -32,6 +32,7 @@
                         <thead>
                             <tr>
                                 <th>Thao tác</th>
+                                <th>STT</th>
                                 <th>Mã sách</th>
                                 <th>Tên sách</th>
                                 <th>Tác giả</th>
@@ -52,44 +53,48 @@
                             $sql = "SELECT * FROM sach";
 
                             $result = mysqli_query($mysqli, $sql);
+                            $stt = 1;
                             while ($row = mysqli_fetch_assoc($result)) {
 
                             ?>
 
-                                <tr>
-                                    <td>
+                            <tr>
+                                <td>
 
-                                        <button class="btn-edit"><a href="addBooks.php?id=<?php echo $row['ma_sach']; ?>"
-                                                class="btn-edit"
-                                                style="text-decoration: none; display: inline-block;">Sửa</a></button>
+                                    <button class="btn-edit"><a href="addBooks.php?id=<?php echo $row['ma_sach']; ?>"
+                                            class="btn-edit"
+                                            style="text-decoration: none; display: inline-block;">Sửa</a></button>
 
-                                        <button class="btn-delete"><a
-                                                href="deleteBooks.php?id=<?php echo $row['ma_sach']; ?>" class="btn-delete"
-                                                style="text-decoration: none; display: inline-block;"
-                                                onclick="return confirm('Bạn có chắc chắn muốn xóa sách <?php echo $row['ten_sach']; ?> (Mã sách: <?php echo $row['ma_sach']; ?>) ?');">Xóa</a></button>
+                                    <button class="btn-delete"><a
+                                            href="deleteBooks.php?id=<?php echo $row['ma_sach']; ?>" class="btn-delete"
+                                            style="text-decoration: none; display: inline-block;"
+                                            onclick="return confirm('Bạn có chắc chắn muốn xóa sách <?php echo $row['ten_sach']; ?> (Mã sách: <?php echo $row['ma_sach']; ?>) ?');">Xóa</a></button>
 
-                                    </td>
-                                    <td><?php echo $row['ma_sach']; ?></td>
+                                </td>
+                                <td style="text-align: center; vertical-align: middle;">
+                                    <span class="stt-highlight"><?php echo $stt++; ?></span>
+                                </td>
+                                <td style="text-align: center;"><?php echo sprintf("%02d", $row['ma_sach']); ?></td>
 
-                                    <td><?php echo $row['ten_sach']; ?></td>
+                                <td><?php echo $row['ten_sach']; ?></td>
 
-                                    <td><?php echo $row['tac_gia']; ?></td>
+                                <td><?php echo $row['tac_gia']; ?></td>
 
-                                    <td><?php echo $row['nha_xb']; ?></td>
+                                <td><?php echo $row['nha_xb']; ?></td>
 
-                                    <td><?php echo $row['the_loai']; ?></td>
+                                <td><?php echo $row['the_loai']; ?></td>
 
-                                    <td><?php echo $row['quoc_gia']; ?></td>
+                                <td><?php echo $row['quoc_gia']; ?></td>
 
-                                    <td><?php echo $row['nha_cung_cap']; ?></td>
+                                <td><?php echo $row['nha_cung_cap']; ?></td>
 
-                                    <td><?php echo $row['so_luong']; ?></td>
+                                <td><?php echo $row['so_luong']; ?></td>
 
-                                    <td><?php echo $row['nam_xb']; ?></td>
+                                <td><?php echo $row['nam_xb']; ?></td>
 
 
 
-                                </tr>
+                            </tr>
 
                             <?php
                             }
