@@ -107,7 +107,7 @@
                         // kiem tra so luong con lai cua sach
                         if ($result['so_luong'] == 0) echo "<button id=\"inform\" style=\"background-color: darkred\">Sách đã hết</button>";
                         // kiem tra user da dang nhap chua
-                        else if (!isset($_SESSION['email'])) echo "<button id=\"inform\" style=\"background-color: darkred\">Đăng nhập để mượn sách</button>";
+                        else if (!isset($_SESSION['email'])) echo "<a href=\"../auth/dangnhap.php\"><button id=\"inform\" style=\"background-color: darkred\">Đăng nhập để mượn sách</button></a>";
                         // kiem tra user da muon sach nay chua
                         else if (array_key_exists($ma_sach, $_SESSION['sach_da_muon'])){
                             echo "<button id=\"inform\" style=\"background-color: darkred\">Bạn đã mượn sách này</button>";

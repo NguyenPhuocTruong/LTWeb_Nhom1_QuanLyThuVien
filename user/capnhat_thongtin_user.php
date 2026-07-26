@@ -32,7 +32,7 @@
         $passwordVerified = false;
 
         // neu user muon doi mat khau
-        if (isset($_POST['curr_password']) or isset($_POST['new_password']) or isset($_POST['re_enter_new_password'])) {
+        if (isset($_POST['new_password'])) {
             $currPassword = $_POST['curr_password'];
             $newPassword = $_POST['new_password'];
             $reEnterNewPassword = $_POST['re_enter_new_password'];
@@ -65,16 +65,15 @@
             $stm->bind_param("s", $newEmail);
             if ($stm->execute()){
                 $result = $stm->get_result();
-                // neu email chua ton tai hoac da ton tai nhung la email hien tai cua user (user chi thay doi ten)
+                // neu email chua ton tai hoac da ton tai nhung la email hien tai cua user (user chi thay doi ten, mat khau)
                 if ($result->num_rows == 0 || ($result->num_rows == 1 and $newEmail === $oldEmail)){
-                    // update thong tin user trong bang nguoidung
                     $stm = "";
 
                     // neu user muon doi mat khau
                     if (strlen($currPassword) != 0) {
-                        $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+                        $newHashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
                         $stm = $mysqli->prepare("UPDATE nguoidung SET email = ?, hoten = ?, mat_khau = ? WHERE email = '$oldEmail'");
-                        $stm->bind_param("sss", $newEmail, $newName, $hashedPassword);
+                        $stm->bind_param("sss", $newEmail, $newName, $newHashedPassword);
                     } else {
                         $stm = $mysqli->prepare("UPDATE nguoidung SET email = ?, hoten = ? WHERE email = '$oldEmail'");
                         $stm->bind_param("ss", $newEmail, $newName);
@@ -129,11 +128,11 @@
                     </div>
                     <div class="form-container__row">
                         <label class="form_label">Mật khẩu mới</label>
-                        <input disabled class="form_input" id="new_password" name="new_password" value="<?php if (isset($_POST['new_password'])) echo $_POST['new_password'];?>" type="password" placeholder="Nhập mật khẩu mới">
+                        <input <?php if (!isset($_POST['new_password'])) echo "disabled"; ?> class="form_input" id="new_password" name="new_password" value="<?php if (isset($_POST['new_password'])) echo $_POST['new_password'];?>" type="password" placeholder="Nhập mật khẩu mới">
                     </div>
                     <div class="form-container__row">
                         <label class="form_label">Nhập lại mật khẩu mới</label>
-                        <input disabled class="form_input" id="re_enter_new_password" name="re_enter_new_password" value="<?php if (isset($_POST['re_enter_new_password'])) echo $_POST['re_enter_new_password'];?>" type="password" placeholder="Nhập lại mật khẩu mới">
+                        <input <?php if (!isset($_POST['new_password'])) echo "disabled"; ?> class="form_input" id="re_enter_new_password" name="re_enter_new_password" value="<?php if (isset($_POST['re_enter_new_password'])) echo $_POST['re_enter_new_password'];?>" type="password" placeholder="Nhập lại mật khẩu mới">
                     </div>
                     <div class="navi">
                         <button onclick="return confirm('Bạn có chắc chắn muốn lưu những thay đổi ?')" type="submit" class="navi_btn" style="background-color: green; width: 81%;">Lưu</button>
