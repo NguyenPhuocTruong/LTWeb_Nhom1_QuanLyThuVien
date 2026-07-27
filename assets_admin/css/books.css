@@ -73,7 +73,7 @@ body.admin-body {
   background: white;
 }
 
-.books-table tbody tr:nth-of-type(even){
+.books-table tbody tr:nth-of-type(even) {
   background-color: rgb(241, 241, 241); /* Làm nổi bật những dòng chẵn */
 }
 
@@ -109,18 +109,55 @@ body.admin-body {
   border-radius: 5px;
   cursor: pointer;
 }
-/* Làm nổi bật STT - Mẫu Huy hiệu tròn */
 .stt-highlight {
   display: inline-block;
   width: 28px;
   height: 28px;
   line-height: 28px;
-  background-color: #e9ecef; /* Màu nền xám nhạt */
-  color: #333; /* Màu chữ đen xám */
-  border-radius: 50%; /* Bo tròn hoàn toàn */
+  background-color: #e9ecef;
+  color: #333;
+  border-radius: 50%;
   font-weight: bold;
   text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ cho nổi lên */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.search-form input[type="text"] {
+  padding: 8px 12px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+  font-size: 14px;
+}
+
+.search-form input[type="text"]:focus {
+  border-color: #2563eb;
+}
+
+.btn-search {
+  padding: 8px 15px;
+  background-color: #2563eb;
+  color: white;
+  border: 1px solid #2563eb;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.btn-search:hover {
+  background-color: #1d4ed8;
 }
 @media (max-width: 992px) {
   .books-page {

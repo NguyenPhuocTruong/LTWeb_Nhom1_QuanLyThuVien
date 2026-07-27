@@ -104,7 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         action="<?php echo $_SERVER['PHP_SELF']; ?><?php echo $isEditMode ? '?id=' . $_GET['id'] : ''; ?>"
                         method="post" enctype="multipart/form-data" class="book-form">
                         <?php if ($isEditMode): ?>
-                            <input type="hidden" name="ma_sach_hidden" value="<?php echo $bookData['ma_sach']; ?>">
+                        <input type="hidden" name="ma_sach_hidden" value="<?php echo $bookData['ma_sach']; ?>">
                         <?php endif; ?>
 
                         <div class="form-group">
@@ -188,8 +188,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     </div>
     <script>
-        if (window.history.replaceState)
-            window.history.replaceState(null, null, window.location.href);
+    if (window.history.replaceState)
+        window.history.replaceState(null, null, window.location.href);
     </script>
 
 </body>

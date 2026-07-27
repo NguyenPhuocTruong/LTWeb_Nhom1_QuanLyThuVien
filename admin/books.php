@@ -22,7 +22,18 @@
             <main class="books-content">
 
                 <div class="books-header">
-                    <h2>Quản lý Sách</h2>
+                    <div class="header-left">
+                        <h2>Quản lý Sách</h2>
+
+                        <!-- Form tìm kiếm -->
+                        <form action="" method="GET" class="search-form">
+                            <input type="text" name="search" placeholder="Nhập tên sách cần tìm..."
+                                value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
+                            <button type="submit" class="btn-search"><i class="fa-solid fa-magnifying-glass"></i> Tìm
+                                kiếm</button>
+                        </form>
+                    </div>
+
                     <button class="btn-add"><a href="addBooks.php">Thêm sách</a></button>
                 </div>
 
@@ -48,57 +59,70 @@
                         <tbody>
 
                             <?php
+                            $search_keyword = "";
+                            if (isset($_GET['search'])) {
+                                $search_keyword = mysqli_real_escape_string($mysqli, trim($_GET['search']));
+                            }
 
-                            $sql = "SELECT * FROM sach";
+                            if ($search_keyword != "") {
+                                $sql = "SELECT * FROM sach WHERE ten_sach LIKE '%$search_keyword%'";
+                            } else {
+                                $sql = "SELECT * FROM sach";
+                            }
 
                             $result = mysqli_query($mysqli, $sql);
                             $stt = 1;
-                            while ($row = mysqli_fetch_assoc($result)) {
 
+
+                            if (mysqli_num_rows($result) > 0) {
+                                while ($row = mysqli_fetch_assoc($result)) {
                             ?>
 
-                            <tr>
-                                <td>
+                                    <tr>
+                                        <td>
 
-                                    <button class="btn-edit"><a href="addBooks.php?id=<?php echo $row['ma_sach']; ?>"
-                                            class="btn-edit"
-                                            style="text-decoration: none; display: inline-block;">Sửa</a></button>
+                                            <button class="btn-edit"><a href="addBooks.php?id=<?php echo $row['ma_sach']; ?>"
+                                                    class="btn-edit"
+                                                    style="text-decoration: none; display: inline-block;">Sửa</a></button>
 
-                                    <button class="btn-delete"><a
-                                            href="deleteBooks.php?id=<?php echo $row['ma_sach']; ?>" class="btn-delete"
-                                            style="text-decoration: none; display: inline-block;"
-                                            onclick="return confirm('Bạn có chắc chắn muốn xóa sách <?php echo $row['ten_sach']; ?> (Mã sách: <?php echo $row['ma_sach']; ?>) ?');">Xóa</a></button>
+                                            <button class="btn-delete"><a
+                                                    href="deleteBooks.php?id=<?php echo $row['ma_sach']; ?>" class="btn-delete"
+                                                    style="text-decoration: none; display: inline-block;"
+                                                    onclick="return confirm('Bạn có chắc chắn muốn xóa sách <?php echo $row['ten_sach']; ?> (Mã sách: <?php echo $row['ma_sach']; ?>) ?');">Xóa</a></button>
 
-                                </td>
-                                <td style="text-align: center; vertical-align: middle;">
-                                    <span class="stt-highlight"><?php echo $stt++; ?></span>
-                                </td>
-                                <td style="text-align: center;"><?php echo sprintf("%02d", $row['ma_sach']); ?></td>
+                                        </td>
+                                        <td style="text-align: center; vertical-align: middle;">
+                                            <span class="stt-highlight"><?php echo $stt++; ?></span>
+                                        </td>
+                                        <td style="text-align: center;"><?php echo sprintf("%02d", $row['ma_sach']); ?></td>
 
-                                <td><?php echo $row['ten_sach']; ?></td>
+                                        <td><?php echo $row['ten_sach']; ?></td>
 
-                                <td><?php echo $row['tac_gia']; ?></td>
+                                        <td><?php echo $row['tac_gia']; ?></td>
 
-                                <td><?php echo $row['nha_xb']; ?></td>
+                                        <td><?php echo $row['nha_xb']; ?></td>
 
-                                <td><?php echo $row['the_loai']; ?></td>
+                                        <td><?php echo $row['the_loai']; ?></td>
 
-                                <td><?php echo $row['quoc_gia']; ?></td>
+                                        <td><?php echo $row['quoc_gia']; ?></td>
 
-                                <td><?php echo $row['nha_cung_cap']; ?></td>
+                                        <td><?php echo $row['nha_cung_cap']; ?></td>
 
-                                <td><?php echo $row['so_luong']; ?></td>
+                                        <td><?php echo $row['so_luong']; ?></td>
 
-                                <td><?php echo $row['nam_xb']; ?></td>
+                                        <td><?php echo $row['nam_xb']; ?></td>
 
 
 
-                            </tr>
+                                    </tr>
 
                             <?php
+                                }
+                            } else {
+
+                                echo "<tr><td colspan='11' style='text-align: center; color: red; padding: 20px;'>Không tìm thấy quyển sách nào có tên này!</td></tr>";
                             }
                             ?>
-
                         </tbody>
                     </table>
                 </div>
