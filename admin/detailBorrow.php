@@ -35,13 +35,14 @@
                             <tr>
                                 <th>STT</th>
                                 <th>Tên sách</th>
+                                <th>Mã sách</th>
                                 <th>Số lượng mượn</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             if ($email != '') {
-                                $query = "SELECT sach.ten_sach, muon_sach.so_luong_sach_muon 
+                                $query = "SELECT sach.ma_sach, sach.ten_sach, muon_sach.so_luong_sach_muon 
                                           FROM muon_sach 
                                           JOIN sach ON muon_sach.ma_sach = sach.ma_sach 
                                           WHERE muon_sach.email = '$email'";
@@ -56,6 +57,7 @@
                                                 <span class="stt-highlight"><?php echo $stt++; ?></span>
                                             </td>
                                             <td><?php echo htmlspecialchars($row['ten_sach']); ?></td>
+                                            <td><?php echo sprintf("%02d", $row['ma_sach']); ?></td>
                                             <td><?php echo htmlspecialchars($row['so_luong_sach_muon']); ?></td>
                                         </tr>
                                     <?php
