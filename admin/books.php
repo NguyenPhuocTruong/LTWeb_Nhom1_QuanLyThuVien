@@ -33,7 +33,7 @@
                                 kiếm</button>
                         </form>
                         <script>
-                            // hien thi ket qua tim kiem theo thoi gian thuc
+                            // Hiển thị kết quả tìm kiếm theo thời gian thực
                             function showHint(str){
                                 var xhr = new XMLHttpRequest();
                                 xhr.onreadystatechange = function() {
