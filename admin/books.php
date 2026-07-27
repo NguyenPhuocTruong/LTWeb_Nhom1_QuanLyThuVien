@@ -27,11 +27,24 @@
 
                         <!-- Form tìm kiếm -->
                         <form action="" method="GET" class="search-form">
-                            <input type="text" name="search" placeholder="Nhập tên sách cần tìm..."
+                            <input onkeyup="showHint(this.value)" onclick="showHint(this.value)" type="text" name="search" placeholder="Nhập tên sách cần tìm..."
                                 value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
                             <button type="submit" class="btn-search"><i class="fa-solid fa-magnifying-glass"></i> Tìm
                                 kiếm</button>
                         </form>
+                        <script>
+                            // hien thi ket qua tim kiem theo thoi gian thuc
+                            function showHint(str){
+                                var xhr = new XMLHttpRequest();
+                                xhr.onreadystatechange = function() {
+                                    if (this.readyState == 4 && this.status == 200){
+                                        document.getElementById("tbody").innerHTML = this.responseText;
+                                    }
+                                };
+                                xhr.open("GET", "./search.php?f=" + str, true); // true la bat dong bo
+                                xhr.send();
+                            }
+                        </script>
                     </div>
 
                     <button class="btn-add"><a href="addBooks.php">Thêm sách</a></button>
@@ -56,7 +69,7 @@
                             </tr>
                         </thead>
 
-                        <tbody>
+                        <tbody id="tbody">
 
                             <?php
                             $search_keyword = "";
