@@ -26,6 +26,7 @@ body.admin-body {
   gap: 20px;
   align-items: stretch;
   width: 100%;
+  max-height: fit-content;
 }
 
 .books-content {
@@ -34,6 +35,7 @@ body.admin-body {
   background: #84ceeb;
   padding: 20px;
   border-radius: 8px;
+  max-height: fit-content;
 }
 
 .books-header {
@@ -61,12 +63,18 @@ body.admin-body {
   padding: 15px;
   border-radius: 8px;
   overflow-x: auto;
+  overflow-y: auto;
+  max-height: 690px;
 }
 
 .books-table {
   width: 100%;
   border-collapse: collapse;
   background: white;
+}
+
+.books-table tbody tr:nth-of-type(even){
+  background-color: rgb(241, 241, 241); /* Làm nổi bật những dòng chẵn */
 }
 
 .books-table th,
@@ -79,6 +87,9 @@ body.admin-body {
 
 .books-table th {
   background: #f1f5f9;
+  position: sticky; /* Giữ cho header cố định khi lướt xuống */
+  top: -16px;
+  background-color: #c3c3c3; /* Làm nổi bật header hơn 1 chút */
 }
 
 .btn-edit {

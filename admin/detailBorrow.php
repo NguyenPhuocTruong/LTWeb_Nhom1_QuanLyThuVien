@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../assets_admin/css/sidebar.css">
     <link rel="stylesheet" href="../assets_admin/css/books.css">
     <link rel="stylesheet" href="../assets_admin/css/btnuser.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
 <body class="admin-body">
