@@ -13,7 +13,7 @@
     if (isset($_REQUEST['f'])){
         $keyword = test_input($_REQUEST['f']);
         if (strlen($keyword) == 0) $result = $mysqli->query("SELECT * FROM sach");
-        else $result = $mysqli->query("SELECT * FROM sach WHERE ten_sach LIKE '$keyword%'");
+        else $result = $mysqli->query("SELECT * FROM sach WHERE ten_sach LIKE '%$keyword%'");
         if ($result->num_rows > 0){
             $stt = 1;
             while ($row = $result->fetch_assoc()){
@@ -70,6 +70,8 @@
                 ";
                 $stt++;
             }
+        } else {
+            echo "<tr><td colspan='11' style='text-align: center; color: red; padding: 20px;'>Không tìm thấy quyển sách nào có tên chứa chữ \"$keyword\"</td></tr>";
         }
     }
 ?>
