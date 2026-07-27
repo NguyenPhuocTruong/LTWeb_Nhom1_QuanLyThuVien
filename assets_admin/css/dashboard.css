@@ -1,0 +1,329 @@
+.dashboard-page .dashboard-content {
+  margin: 0;
+  width: auto;
+  border: none;
+  grid-area: auto;
+  display: block;
+  justify-content: initial;
+  align-items: initial;
+}
+
+body.admin-body {
+  display: block;
+  width: 100%;
+  background: #f4f6f9;
+}
+
+.dashboard-page {
+  background: #f4f6f9;
+  padding: 20px;
+}
+
+.dashboard-page * {
+  box-sizing: border-box;
+}
+
+.admin-layout {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+  width: 100%;
+}
+
+.dashboard-content {
+  flex: 1;
+  min-width: 0;
+  background: #84ceeb;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.dashboard_title {
+  margin-bottom: 20px;
+}
+
+.dashboard_title h1 {
+  margin: 0;
+  font-size: 28px;
+  color: #000;
+}
+
+.dashboard_title h2 {
+  margin-top: 6px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+}
+
+.stat_grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.stat_card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 18px 20px;
+  min-height: 105px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.stat_card h2 {
+  margin: 0;
+  font-size: 30px;
+  color: #2563eb;
+}
+
+.stat_card p {
+  margin: 6px 0 0;
+  font-size: 15px;
+  color: #444;
+}
+
+.stat_icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+}
+
+/* Màu icon từng ô */
+.stat_icon.blue {
+  background: #e8f1ff;
+  color: #2563eb;
+}
+
+.stat_icon.green {
+  background: #e9f8ef;
+  color: #16a34a;
+}
+
+.stat_icon.yellow {
+  background: #fff7df;
+  color: #d97706;
+}
+
+.stat_icon.red {
+  background: #ffecec;
+  color: #ef4444;
+}
+
+.dashboard_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.dashboard_box {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+.box_title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.box_title h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #000;
+}
+
+.box_title a {
+  color: #2563eb;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.box_title a:hover {
+  text-decoration: underline;
+}
+
+.dashboard_box table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+
+.dashboard_box th,
+.dashboard_box td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+  white-space: nowrap;
+  font-size: 14px;
+}
+
+.dashboard_box th {
+  background: #f1f5f9;
+  font-weight: 700;
+}
+
+.dashboard_box td {
+  color: #333;
+}
+
+.dashboard_box td i {
+  color: #555;
+  cursor: pointer;
+}
+
+.status {
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.status.available {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.status.borrowed {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.status.overdue {
+  background: #fee2e2;
+  color: #ef4444;
+}
+
+@media (max-width: 1200px) {
+  .dashboard-page {
+    padding: 15px;
+  }
+
+  .dashboard-content {
+    padding: 18px;
+  }
+
+  .dashboard_title h1 {
+    font-size: 24px;
+  }
+
+  .stat_card {
+    padding: 15px;
+  }
+}
+@media (max-width: 992px) {
+  .admin-layout {
+    gap: 15px;
+  }
+
+  .dashboard-content {
+    padding: 15px;
+  }
+
+  .dashboard_title h1 {
+    font-size: 22px;
+  }
+
+  .dashboard_title h2 {
+    font-size: 15px;
+  }
+
+  .stat_grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+
+  .dashboard_grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .admin-layout {
+    flex-direction: column;
+  }
+
+  .dashboard-page {
+    padding: 10px;
+  }
+
+  .dashboard-content {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .dashboard_title h1 {
+    font-size: 20px;
+  }
+
+  .dashboard_title h2 {
+    font-size: 14px;
+  }
+
+  .stat_grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat_card {
+    min-height: auto;
+    padding: 15px;
+  }
+
+  .stat_card h2 {
+    font-size: 26px;
+  }
+
+  .stat_card p {
+    font-size: 14px;
+  }
+
+  .dashboard_box {
+    padding: 12px;
+    overflow-x: auto;
+  }
+
+  .dashboard_box table {
+    min-width: 600px;
+  }
+}
+@media (max-width: 480px) {
+  .dashboard-page {
+    padding: 8px;
+  }
+
+  .dashboard-content {
+    padding: 10px;
+  }
+
+  .dashboard_title h1 {
+    font-size: 18px;
+  }
+
+  .dashboard_title h2 {
+    font-size: 13px;
+  }
+
+  .box_title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .stat_icon {
+    width: 42px;
+    height: 42px;
+    font-size: 18px;
+  }
+
+  .stat_card h2 {
+    font-size: 22px;
+  }
+}

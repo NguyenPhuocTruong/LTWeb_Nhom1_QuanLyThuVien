@@ -1,0 +1,25 @@
+<?php
+require_once("../mysqlConnect.php");
+$mysqli->select_db("library");
+
+if (isset($_GET['id'])) {
+    $email = $_GET['id'];
+
+    $sql = "DELETE FROM nguoidung WHERE email = ?";
+    $stmt = $mysqli->prepare($sql);
+    $stmt->bind_param("s", $email); // 's' vì email là chuỗi (string)
+
+    if ($stmt->execute()) {
+        echo "<script>
+                alert('Đã xóa thành viên thành công!');
+                window.location.href = 'users.php';
+              </script>";
+    } else {
+        echo "<script>
+                alert('Có lỗi xảy ra: " . $mysqli->error . "');
+                window.location.href = 'users.php';
+              </script>";
+    }
+} else {
+    header("Location: users.php");
+}

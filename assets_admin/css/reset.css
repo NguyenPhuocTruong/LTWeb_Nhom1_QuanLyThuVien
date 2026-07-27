@@ -1,0 +1,57 @@
+body.admin-body .books-page,
+body.admin-body .books-page *,
+body.admin-body .books-page *::before,
+body.admin-body .books-page *::after {
+  box-sizing: border-box;
+}
+
+body.admin-body .books-page h1,
+body.admin-body .books-page h2,
+body.admin-body .books-page h3,
+body.admin-body .books-page h4,
+body.admin-body .books-page h5,
+body.admin-body .books-page h6,
+body.admin-body .books-page p,
+body.admin-body .books-page ul,
+body.admin-body .books-page ol {
+  margin: 0;
+  padding: 0;
+}
+
+body.admin-body .books-page ul,
+body.admin-body .books-page ol {
+  list-style: none;
+}
+
+body.admin-body .books-page a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body.admin-body .books-page img {
+  max-width: 100%;
+  display: block;
+}
+
+body.admin-body .books-page button,
+body.admin-body .books-page input,
+body.admin-body .books-page select,
+body.admin-body .books-page textarea {
+  font-family: inherit;
+  outline: none;
+}
+
+body.admin-body .books-page button {
+  border: none;
+  cursor: pointer;
+}
+
+body.admin-body .books-page table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body.admin-body .books-page th,
+body.admin-body .books-page td {
+  padding: 0;
+}
