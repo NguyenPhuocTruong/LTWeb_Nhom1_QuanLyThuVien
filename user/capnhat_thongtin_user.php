@@ -100,11 +100,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Library</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets_auth/form.css"> 
     <link rel="stylesheet" href="../assets_user/thongtin_user.css">
     <script src="https://kit.fontawesome.com/67ecaf9947.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/vnd.microsoft.icon" href="../images/sky4.jpg">
 </head>
 <body>
     <div class="info-container">
