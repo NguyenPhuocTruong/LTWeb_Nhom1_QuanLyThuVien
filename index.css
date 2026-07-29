@@ -32,8 +32,9 @@ div.upper_header {
     height: 90px;
     grid-area: upper_header;
     /* border: 2px dashed red; */
-    background-image: url("./images/sky4.jpg");
+    background-image: linear-gradient(to bottom, #5ab9ea, #5680e9);
     background-size: contain;
+    /* background-color: #84ceeb; */
     z-index: 1;
 }
 
@@ -51,7 +52,8 @@ div.lower_header {
         "logo search"
         "catalogue catalogue"
     ;
-    background-color: rgb(102, 143, 183);
+    /* background-color: rgb(102, 143, 183); */
+    background-color: #5680e9;
     z-index: 1;
 }
 
@@ -171,7 +173,7 @@ div.login {
 }
 
 div.login:hover {
-    background-color: rgb(119, 165, 212);
+    background-color: #799dfa;
 }
 
 div.login div a:hover {
