@@ -32,6 +32,9 @@ if (isset($_POST['login'])) {
                         // luu thong tin email va ho ten user vao session
                         $_SESSION['email'] = $row['email'];
                         $_SESSION['name'] = $row['hoten'];
+                        $_SESSION['diachi'] = $row['diachi'];
+                        $_SESSION['gioitinh'] = $row['gioitinh'];
+                        $_SESSION['sodienthoai'] = $row['sodienthoai'];
 
                         // lay danh sach sach da muon cua user
                         $sql = "SELECT muon_sach.ma_sach, sach.ten_sach FROM muon_sach INNER JOIN sach ON muon_sach.ma_sach = sach.ma_sach 
