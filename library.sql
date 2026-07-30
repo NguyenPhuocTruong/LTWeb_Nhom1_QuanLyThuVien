@@ -20,7 +20,10 @@ CREATE TABLE library.theloai (
 CREATE TABLE library.nguoidung (
     email VARCHAR(100) PRIMARY KEY,
     hoten VARCHAR(50) NOT NULL collate 'utf8mb4_unicode_ci',
-    mat_khau VARCHAR(255) NOT NULL collate 'utf8mb4_unicode_ci'
+    mat_khau VARCHAR(255) NOT NULL collate 'utf8mb4_unicode_ci',
+    diachi VARCHAR(500) collate 'utf8mb4_unicode_ci',
+    gioitinh boolean,
+    sodienthoai VARCHAR(10)
 );
 
 CREATE TABLE library.muon_sach (
@@ -28,6 +31,6 @@ CREATE TABLE library.muon_sach (
     email VARCHAR(100),
     ma_sach INT,
     so_luong_sach_muon INT NOT NULL,
-    Foreign Key (email) REFERENCES library.nguoidung(email) ON UPDATE CASCADE,
-    Foreign Key (ma_sach) REFERENCES library.sach(ma_sach)
+    Foreign Key (email) REFERENCES library.nguoidung(email) ON UPDATE CASCADE ON DELETE CASCADE,
+    Foreign Key (ma_sach) REFERENCES library.sach(ma_sach) ON DELETE CASCADE
 )

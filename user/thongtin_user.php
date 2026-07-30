@@ -21,9 +21,12 @@
                 <?php 
                     $email = $_SESSION['email'];
                     $name = $_SESSION['name'];
+                    $diachi = $_SESSION['diachi'];
+                    $gioitinh = $_SESSION['gioitinh'];
+                    $sodienthoai = $_SESSION['sodienthoai'];
                     $sach_da_muon = $_SESSION['sach_da_muon'];
                     $so_luong = count($sach_da_muon);
-                    echo "<h4>Email: $email</h4><h4>Họ Tên: $name</h4><h4>Sách Đã Mượn: $so_luong</h4><br>";
+                    echo "<h4>Email: $email</h4><h4>Họ Tên: $name</h4><h4>Địa chỉ: $diachi</h4><h4>Số điện thoại: $sodienthoai</h4><h4>Giới tính: $gioitinh</h4><h4>Sách Đã Mượn: $so_luong</h4><br>";
                     echo "<a href=\"./capnhat_thongtin_user.php\"><button class=\"navi_btn\">Cập Nhật Thông Tin</button></a>";
                     if ($so_luong > 0){
                         $i = 0;
@@ -49,7 +52,7 @@
             </div>
             <div class="navi">
                 <a href="./trangchu.php"><button class="navi_btn">Quay Về Trang Chủ</button></a>
-                <button onclick="dangxuat()" class="navi_btn" style="background-color: brown;">Đăng Xuất</button>
+                <button onclick="dangxuat()" class="navi_btn" style="background-color: #ef4444;">Đăng Xuất</button>
                 <script>
                     function dangxuat(){
                         if (confirm("Bạn Có Chắc Chắn Muốn Đăng Xuất ?")){

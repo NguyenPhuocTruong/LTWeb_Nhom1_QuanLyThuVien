@@ -43,6 +43,9 @@ if (isset($_POST['dangki'])) {
                     $_SESSION['email'] = $email;
                     $_SESSION['name'] = $hoten;
                     $_SESSION['sach_da_muon'] = array();
+                    $_SESSION['diachi'] = "";
+                    $_SESSION['gioitinh'] = "";
+                    $_SESSION['sodienthoai'] = "";
 
                     // thong bao dang ky thanh cong va chuyen huong den trang chu
                     echo '<script>

@@ -19,19 +19,26 @@ body {
 }
 
 table {
-    min-width: 70%;
-    text-align: left;
-    margin: auto;
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
 }
 
 th, td {
-    border: 2px #a0a1a4 solid;
-    width: fit-content;
-    padding: 5px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+  white-space: nowrap;
+  font-size: 14px;
 }
 
 th {
-    background-color: #e3e6f2;
+  background: #f1f5f9;
+  font-weight: 700;
+}
+
+td {
+  color: #333;
 }
 
 a {
@@ -52,7 +59,8 @@ button {
     color: #fff;
     cursor: pointer;
     transition: opacity 0.2s ease;
-    width: 40%;
+    width: 43%;
+    margin: auto;
     height: 40px;
     border: 1px solid #ccc;
     border-radius: 5px;

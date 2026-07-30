@@ -26,6 +26,9 @@
         $newName = $_POST['hoten'];
         $oldEmail = $_SESSION['email'];
         $oldName = $_SESSION['name'];
+        $diachi = $_POST['diachi'];
+        $gioitinh = $_POST['gioitinh'];
+        $sodienthoai = $_POST['sodienthoai'];
         $currPassword = "";
         $newPassword = "";
         $reEnterNewPassword = "";
@@ -59,7 +62,7 @@
         else if (strlen($currPassword) != 0 and strlen($newPassword) < 8) $response = "<script>alert(\"Mật khẩu mới phải có ít nhất 8 ký tự\")</script>";
         else if (strlen($currPassword) != 0 and $newPassword !== $reEnterNewPassword) $response = "<script>alert(\"Mật khẩu nhập lại không khớp\")</script>";
         
-        else if (($newEmail !== $oldEmail) or ($newName !== $oldName) or (strlen($currPassword) != 0)) {
+        else if (($newEmail !== $oldEmail) or ($newName !== $oldName) or (strlen($currPassword) != 0) or (strlen($diachi) != 0) or (strlen($gioitinh) != 0) or (strlen($sodienthoai) != 0)) {
             // kiem tra email da ton tai chua
             $stm = $mysqli->prepare("SELECT * FROM nguoidung WHERE email = ?");
             $stm->bind_param("s", $newEmail);
@@ -72,16 +75,19 @@
                     // neu user muon doi mat khau
                     if (strlen($currPassword) != 0) {
                         $newHashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
-                        $stm = $mysqli->prepare("UPDATE nguoidung SET email = ?, hoten = ?, mat_khau = ? WHERE email = '$oldEmail'");
-                        $stm->bind_param("sss", $newEmail, $newName, $newHashedPassword);
+                        $stm = $mysqli->prepare("UPDATE nguoidung SET email = ?, hoten = ?, mat_khau = ?, diachi = ?, gioitinh = ?, sodienthoai = ? WHERE email = '$oldEmail'");
+                        $stm->bind_param("ssssss", $newEmail, $newName, $newHashedPassword, $diachi, $gioitinh, $sodienthoai);
                     } else {
-                        $stm = $mysqli->prepare("UPDATE nguoidung SET email = ?, hoten = ? WHERE email = '$oldEmail'");
-                        $stm->bind_param("ss", $newEmail, $newName);
+                        $stm = $mysqli->prepare("UPDATE nguoidung SET email = ?, hoten = ?, diachi = ?, gioitinh = ?, sodienthoai = ? WHERE email = '$oldEmail'");
+                        $stm->bind_param("sssss", $newEmail, $newName, $diachi, $gioitinh, $sodienthoai);
                     }
                     if ($stm->execute()){
                         // thay doi gia tri session
                         $_SESSION['email'] = $newEmail;
                         $_SESSION['name'] = $newName;
+                        $_SESSION['diachi'] = $diachi;
+                        $_SESSION['gioitinh'] = $gioitinh;
+                        $_SESSION['sodienthoai'] = $sodienthoai;
 
                         $response = "
                             <script>
@@ -125,6 +131,21 @@
                         <input class="form_input" id="hoten" name="hoten" value="<?php if (isset($_POST['hoten'])) echo $_POST['hoten']; else echo $_SESSION['name']; ?>" type="text" placeholder="Nhập họ và tên của bạn">
                     </div>
                     <div class="form-container__row">
+                        <label class="form_label">Địa chỉ</label>
+                        <input class="form_input" id="diachi" name="diachi" value="<?php if (isset($_POST['diachi'])) echo $_POST['diachi']; else echo $_SESSION['diachi']; ?>" type="text" placeholder="Nhập địa chỉ của bạn">
+                    </div>
+                    <div class="form-container__row">
+                        <label class="form_label">Giới tính</label>
+                        <select name="gioitinh" id="gioitinh" style="font-size: 15px;">
+                            <option value="Nam" <?php if (isset($_POST['gioitinh']) and $_POST['gioitinh'] == "Nam") echo "selected"; else if ($_SESSION['gioitinh'] == "Nam") echo "selected"; ?>>Nam</option>
+                            <option value="Nữ" <?php if (isset($_POST['gioitinh']) and $_POST['gioitinh'] == "Nữ") echo "selected"; else if ($_SESSION['gioitinh'] == "Nữ") echo "selected"; ?>>Nữ</option>
+                        </select>
+                    </div>
+                    <div class="form-container__row">
+                        <label class="form_label">Số điện thoại</label>
+                        <input class="form_input" id="sodienthoai" name="sodienthoai" value="<?php if (isset($_POST['sodienthoai'])) echo $_POST['sodienthoai']; else echo $_SESSION['sodienthoai']; ?>" type="text" placeholder="Nhập số điện thoại của bạn">
+                    </div>
+                    <div class="form-container__row">
                         <label class="form_label">Mật khẩu hiện tại <b>(Bỏ trống nếu bạn không muốn đổi mật khẩu)</b></label>
                         <input onkeyup="enterCurrPassword()" class="form_input" id="curr_password" name="curr_password" value="<?php if (isset($_POST['curr_password'])) echo $_POST['curr_password'];?>" type="password" placeholder="Nhập mật khẩu hiện tại">
                     </div>
@@ -137,11 +158,11 @@
                         <input <?php if (!isset($_POST['new_password'])) echo "disabled"; ?> class="form_input" id="re_enter_new_password" name="re_enter_new_password" value="<?php if (isset($_POST['re_enter_new_password'])) echo $_POST['re_enter_new_password'];?>" type="password" placeholder="Nhập lại mật khẩu mới">
                     </div>
                     <div class="navi">
-                        <button onclick="return confirm('Bạn có chắc chắn muốn lưu những thay đổi ?')" type="submit" class="navi_btn" style="background-color: green; width: 81%;">Lưu</button>
+                        <button onclick="return confirm('Bạn có chắc chắn muốn lưu những thay đổi ?')" type="submit" class="navi_btn" style="background-color: #16a34a; width: 100%;">Lưu</button>
                     </div>
                 </form>
                 <div class="navi">
-                    <button class="navi_btn" onclick="backToMainPage()">Quay Về Trang Chủ</button>
+                    <button class="navi_btn" onclick="backToMainPage()" style="width: 49.5%;">Quay Về Trang Chủ</button>
                     <script>
                         function backToMainPage(){
                             const newEmail = document.getElementById("email").value;
@@ -167,7 +188,7 @@
                             }
                         }
                     </script>
-                    <a href=""><button class="navi_btn" style="background-color: brown;">Khôi Phục</button></a>
+                    <a href=""><button class="navi_btn" style="background-color: #ef4444; width: 49.5%;">Khôi Phục</button></a>
                 </div>
             </div>
         </div>

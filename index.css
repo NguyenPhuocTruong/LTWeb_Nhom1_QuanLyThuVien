@@ -261,7 +261,8 @@ footer {
     flex-direction: row;
     align-items: start;
     justify-content: space-evenly;
-    background-color: rgb(0, 59, 119);
+    /* background-color: rgb(0, 59, 119); */
+    background-color: #8860d0;
     color: white;
 }
 
