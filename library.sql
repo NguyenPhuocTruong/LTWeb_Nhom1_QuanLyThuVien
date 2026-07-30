@@ -28,6 +28,6 @@ CREATE TABLE library.muon_sach (
     email VARCHAR(100),
     ma_sach INT,
     so_luong_sach_muon INT NOT NULL,
-    Foreign Key (email) REFERENCES library.nguoidung(email) ON UPDATE CASCADE,
-    Foreign Key (ma_sach) REFERENCES library.sach(ma_sach)
+    Foreign Key (email) REFERENCES library.nguoidung(email) ON DELETE CASCADE ON UPDATE CASCADE,
+    Foreign Key (ma_sach) REFERENCES library.sach(ma_sach) ON DELETE CASCADE
 )
